@@ -20,3 +20,9 @@ public class App {
 	}
 
 }
+//Main method to start Spring Boot application
+//Controller: Classes handling HTTP requests (e.g., REST controllers)
+//Model: Classes representing entities or data models (e.g., User, FoodItem).
+//Service: Classes containing business logic.
+//Repository: Classes for database interactions.
+//Config: Classes for configuration settings.
