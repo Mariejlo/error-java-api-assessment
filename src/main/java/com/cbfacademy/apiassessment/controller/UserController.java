@@ -13,12 +13,8 @@ public class UserController {
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.http.ResponseEntity;
 
-class UserControllerTest {
-
- 
-  
-  }
-}
+//Class needed to be implemented in the controller
 
 }
