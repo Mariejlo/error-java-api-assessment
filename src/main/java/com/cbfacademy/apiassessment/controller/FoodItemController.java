@@ -19,16 +19,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController //Controller class every method written HTTP response body
 @RequestMapping("/api/v1/foodItems") //Set the base path for all methods
+@Validated //FoodItem are automatically validated when they are received as input
 
-public class FoodItemController {
+{
     @Autowired
     private FoodItemService foodItemService;
 }
@@ -47,6 +49,11 @@ public class FoodItemController {
         return ResponseEntity.ok().body(savedFoodItem);
     }
 
+    @PostMapping
+    public ResponseEntity<FoodItem> createFoodItem(@Valid @RequestBody FoodItem foodItem) {
+        FoodItem savedFoodItem = foodItemService.saveFoodItem(foodItem);
+        return ResponseEntity.ok().body(savedFoodItem);
+    }
     @PutMapping("/{id}") //Updates a specific food item with new details
     public ResponseEntity<FoodItem> updateFoodItem(@RequestBodyPathVariable("id") Long id, @RequestBody FoodItem foodItemDetails) {
         FoodItem updatedFoodItem = foodItemService.updateFoodItem(id, foodItemDetails); 
