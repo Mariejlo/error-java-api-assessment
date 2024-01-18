@@ -72,9 +72,25 @@ public class FoodItemServiceImpl implements FoodItemService {
         foodItemRepository.delete(id);
     
     }
+    //Additional enhancements and extras such as Exception handling
+    package com.foodcatalogue.service;
 
+    import com.foodcatalogue.model.FoodItem;
+    import java.util.List;
+    
+    public interface FoodItemService { //This define the contract interface
+        
+        FoodItem saveFoodItem(FoodItem foodItem); //Adds a new food item to the database
+        
+        List<FoodItem> getAllFoodItems();  //Retrieves all the food items from the database
+        
+        FoodItem getFoodItemById(Long id); 
+        
+        FoodItem updateFoodItem(Long id, FoodItem foodItemDetails); //Updates a food item in the database
+        
+        void deleteFoodItem(Long id); // Deletes a food item from the database   
     //Implement additional methods like calculateTotalCalories here
-//Additional things and extras such as Exception handling
+
 }
 
     
