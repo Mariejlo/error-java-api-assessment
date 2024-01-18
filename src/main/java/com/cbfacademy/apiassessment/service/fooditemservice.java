@@ -89,7 +89,15 @@ public class FoodItemServiceImpl implements FoodItemService {
         FoodItem updateFoodItem(Long id, FoodItem foodItemDetails); //Updates a food item in the database
         
         void deleteFoodItem(Long id); // Deletes a food item from the database   
-    //Implement additional methods like calculateTotalCalories here
+    
+        //Custom exceptions
+        
+        public FoodItem getFoodItemById(Long id) {
+            return foodItemRepository.findById(id)
+                    .orElseThrow(() -> new ResourceNotFoundException("FoodItem", "id", id));
+        }
+    
+        //Implement additional methods like calculateTotalCalories here
 
 }
 

@@ -72,11 +72,8 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
-//Custom exceptions
-public FoodItem getFoodItemById(Long id) {
-    return foodItemRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("FoodItem", "id", id));
-}
+
+
 //Class needed to be implemented in the controller
 
 }
