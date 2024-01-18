@@ -12,20 +12,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
-@Service
+@Service //Declare the class as a service
 public class FoodItemServiceImpl implements FoodItemService {
     
-    @Autowired
+    @Autowired //Dependency injection, it allows interaction between the application and the database
     private FoodItemRepository foodItemRepository;
 
-    @Override
+    @Override //Method 
     public FoodItem saveFoodItem(FoodItem foodItem) {
-        // Validate foodItem before saving
-        // ...
+        // Validate foodItem before saving (optional)
+        // Save the new FoodItem to the database
         return foodItemRepository.save(foodItem);
     }
 
-    @Override
+    @Override //Retrieves all the food items from the database
     public List<FoodItem> getAllFoodItems() {
         return foodItemRepository.findAll();
     }
@@ -37,11 +37,19 @@ public class FoodItemServiceImpl implements FoodItemService {
                 .orElseThrow(() -> new ResourceNotFoundException("FoodItem", "id", id));
     }
 
-    @Override
-    @Transactional
+    @Override 
+    @Transactional //Fetch, update and save 
     public FoodItem updateFoodItem(Long id, FoodItem foodItemDetails) {
-        // Transactional method example
-        // ...
+        FoodItem existingFoodItem = foodItemRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("FoodItem not found with id: " + id));
+
+        existingFoodItem.setName(foodItemDetails.getName());
+        existingFoodItem.setCalories(foodItemDetails.getCalories());
+        existingFoodItem.setDescription(foodItemDetails.getDescription());
+        existingFoodItem.setPrice(foodItemDetails.getPrice());
+        return foodItemRepository.save(existingFoodItem);
+        // Transactional method example for data integrity
+        // Logic to update a food item
     }
 
     @Override
@@ -50,4 +58,5 @@ public class FoodItemServiceImpl implements FoodItemService {
     }
     
     // Implement additional methods like calculateTotalCalories here
+    // Additional enhancements and extras such as logging, input validation, error messages and exception handling
 }
