@@ -5,6 +5,8 @@
     import javax.persistence.GenerationType;
     import javax.persistence.Id;
     import javax.persistence.Column;
+    import javax.validation.constraints.NotNull;
+    import javax.validation.constraints.Size;
 
   
     
@@ -46,6 +48,15 @@
                     '}';
         }
     
+        @NotNull(message = "Name cannot be null") //Ensures fielf not null
+        @Size(min = 2, max = 100, message = "Name must be between 2 and 100 characters") // Filed size within range        private String name;
+
+        @NotNull(message = "Serving size cannot be null")
+        private String servingSize;
+
+        @NotNull(message = "Calories per serving cannot be null")
+        private Integer caloriesPerServing;
+
     }
     //Getters and setters for all attributes
 
