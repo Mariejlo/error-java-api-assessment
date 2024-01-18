@@ -27,6 +27,18 @@ public class GlobalExceptionHandler {
     @ResponseBody //Return type should be JSON 
     public ErrorMessage handleException(Exception ex) { 
         return new ErrorMessage(HttpStatus.INTERNAL_SERVER_ERROR.value(), "An  unexpected error has occurred");
-        
+
+    // Create the Error Message class (optional)
+    package com.foodcatalogue.exception;
+
+    public class ErrorMessage { //Class to send back consistent error response format
+        private int statusCode;
+        private String message;
+
+        public ErrorMessage(int statusCode, String message) {
+            this.statusCode = statusCode;
+            this.message = message;
+        }
+
     
 }
