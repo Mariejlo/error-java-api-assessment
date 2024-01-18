@@ -4,8 +4,9 @@
     import javax.persistence.GeneratedValue;
     import javax.persistence.GenerationType;
     import javax.persistence.Id;
+    import javax.persistence.Column;
 
-    import org.aspectj.weaver.ast.And;
+  
     
     @Entity
     public class FoodItem {
@@ -13,7 +14,8 @@
         @Id 
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;  //Unique identifier for each food item (check if private is needed?) 
-    
+        
+        @Column(name = "food_name", nullable = false, length = 100)
         private String name;  //Name of the food item
     
         private String servingSize; //Describes the serving size of the food (e.g.,"100g","1 cup")
