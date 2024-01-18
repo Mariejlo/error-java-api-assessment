@@ -74,7 +74,7 @@ public class FoodItemServiceImpl implements FoodItemService {
     }
 
     //Implement additional methods like calculateTotalCalories here
-
+//Additional things and extras such as Exception handling
 }
 
     
