@@ -1,4 +1,4 @@
-package com.cbfacademy.apiassessment.advice;
+
 
 public class globalExceptionHandler {
     
