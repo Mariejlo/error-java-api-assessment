@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
 @Repository //interface is a repository component helpful for scanning and exception translation 
 public interface FoodItemRepository extends JpaRepository<FoodItem, Long> {
     // Define custom query methods here (optional)
-    //E.g food items with specific name.. method isList<FoodItem> findByName(String name);
+    //E.g food items with specific name.. method is List<FoodItem> findByName(String name);
 
 }
