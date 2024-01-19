@@ -1,8 +1,9 @@
 package com.cbfacademy.apiassessment.service;
 
-public class foodItermServiceImpl {
-    
+public class FoodItemServiceImpl implements FoodItemService {
+
 }
+    
 package com.foodcatalogue.service;
 
 import com.foodcatalogue.model.FoodItem;
