@@ -1,6 +1,6 @@
 package com.cbfacademy.apiassessment.exception;
 
-public class resourceNotFoundException {
+public class ResourceNotFoundException {
     
 }
 package com.foodcatalogue.exception;

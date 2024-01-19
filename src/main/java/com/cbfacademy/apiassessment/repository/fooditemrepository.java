@@ -1,6 +1,6 @@
 package com.cbfacademy.apiassessment.repository;
 
-public class foodItemRepository {
+public class FoodItemRepository {
     
 }
 //Interfaces here adding stock, check whats is available, updating quantities, removing items

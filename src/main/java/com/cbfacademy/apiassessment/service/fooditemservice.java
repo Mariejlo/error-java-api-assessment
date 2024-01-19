@@ -1,13 +1,14 @@
 package com.cbfacademy.apiassessment.service;
-
-public class fooditemservice {
-    
-}
-package com.foodcatalogue.service;
-
 import com.foodcatalogue.model.FoodItem;
+import com.foodcatalogue.repository.FoodItemRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+public class FoodItemService {
+}  
+
 
 public interface FoodItemService {
     
@@ -27,12 +28,7 @@ public interface FoodItemService {
 
 package com.foodcatalogue.service;
 
-import com.foodcatalogue.model.FoodItem;
-import com.foodcatalogue.repository.FoodItemRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 
