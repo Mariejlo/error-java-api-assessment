@@ -1,4 +1,4 @@
-package foodcatalogue.subclassfooditem;
+package com.cbfacademy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
