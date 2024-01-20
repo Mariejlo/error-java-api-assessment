@@ -70,7 +70,5 @@ public class FoodItemServiceImpl implements FoodItemService {
         // Add more properties if necessary
     }
 }
-
-    
-    // Copy properties from foodItemDetails to existingFoodItem
+        // Copy properties from foodItemDetails to existingFoodItem
         // Consider using a library like MapStruct for more complex mappings
