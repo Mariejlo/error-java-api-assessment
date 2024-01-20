@@ -1,8 +1,3 @@
-
-
-public class globalExceptionHandler {
-    
-}
 package com.foodcatalogue.exception;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
