@@ -7,44 +7,35 @@
     import javax.persistence.Column;
     import javax.validation.constraints.NotNull;
     import javax.validation.constraints.Size;
-
-    package foodcatalogue;
-
+ /**
+* Represents a specific food item in the catalogue.
+*/
 public class FoodItem extends FoodCatalogue {
-    // Attributes specific to FoodItem
-    private String itemName;
-    private double calories;
-    // ... other attributes
-    
-    // Constructor
-    public FoodItem(String itemName, double calories) {
-        this.itemName = itemName;
-        this.calories = calories;
-        // ... initialization of other attributes
-    }
-    
-    // Methods specific to FoodItem
-    public void displayItemDetails() {
-        // Code to display item details
-    }
+   // FoodItem specific attributes, constructors, methods
 
-    // Getters and setters for private attributes
-    // ...
-}
-
+   public FoodItem() {
+       // Constructor code
+   }
     
     @Entity
     public class FoodItem {
     
+   
+        }
         @Id 
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;  //Unique identifier for each food item (check if private is needed?) 
-        
+
+
+        @NotNull(message = "Name cannot be null") //Ensures field not null
+        @Size(min = 2, max = 100, message = "Name must be between 2 and 100 characters") // Filed size within range        private String name;
         @Column(name = "food_name", nullable = false, length = 100)
         private String name;  //Name of the food item
     
+        @NotNull(message = "Serving size cannot be null")
         private String servingSize; //Describes the serving size of the food (e.g.,"100g","1 cup")
-    
+
+        @NotNull(message = "Calories per serving cannot be null")
         private Integer caloriesPerServing;   // Number of calories per serving (e.g. 100, 1000)
            //If we got extra time more attributes like price, category will be added 
            
@@ -59,28 +50,6 @@ public class FoodItem extends FoodCatalogue {
             this.caloriesPerServing = caloriesPerServing;
         }
     
-        // Getters and setters for all attributes
-    
-        @Override
-        public String toString() {
-            return "FoodItem{" +
-                    "id=" + id +
-                    ", name='" + name + '\'' +
-                    ", servingSize='" + servingSize + '\'' +
-                    ", caloriesPerServing=" + caloriesPerServing +
-                    '}';
-        }
-    
-        @NotNull(message = "Name cannot be null") //Ensures fielf not null
-        @Size(min = 2, max = 100, message = "Name must be between 2 and 100 characters") // Filed size within range        private String name;
-
-        @NotNull(message = "Serving size cannot be null")
-        private String servingSize;
-
-        @NotNull(message = "Calories per serving cannot be null")
-        private Integer caloriesPerServing;
-
-    }
     //Getters and setters for all attributes
 
     @Override
