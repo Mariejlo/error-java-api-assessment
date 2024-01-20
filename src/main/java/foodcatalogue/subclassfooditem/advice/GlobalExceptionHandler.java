@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
 }
 
     // Create the Error Message class (optional)
-    package com.foodcatalogue.exception;
+    package foodcatalogue.subclassfooditem.advice;
 
     public class ErrorMessage { //Class to send back consistent error response format
         private final int statusCode;

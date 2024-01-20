@@ -1,5 +1,5 @@
 
-package com.foodcatalogue.controller; 
+package foodcatalogue.subclassfooditem.controller; 
 
 public class FoodItemController {
 

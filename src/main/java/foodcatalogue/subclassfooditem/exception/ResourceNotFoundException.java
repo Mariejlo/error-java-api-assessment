@@ -3,7 +3,7 @@ package com.cbfacademy.apiassessment.exception;
 public class ResourceNotFoundException {
     
 }
-package com.foodcatalogue.exception;
+package foodcatalogue.subclassfooditem.exception;
 
 public class ResourceNotFoundException extends RuntimeException {  //Unchecked exception
 

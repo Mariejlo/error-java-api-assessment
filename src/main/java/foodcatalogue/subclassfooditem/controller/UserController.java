@@ -1,4 +1,4 @@
-package com.cbfacademy.apiassessment.controller;
+package foodcatalogue.subclassfooditem.controller;
 
 import org.springframework.http.ResponseEntity;
 
