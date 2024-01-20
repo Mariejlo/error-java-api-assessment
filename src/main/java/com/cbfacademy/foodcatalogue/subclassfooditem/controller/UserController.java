@@ -1,79 +1,38 @@
 package com.cbfacademy.foodcatalogue.subclassfooditem.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-
-//Class definition section
-
-// This sets the base path for all request in this controller
-
-/**
-     * This methods returns all the users.
-     * @return a list of all the users
-    */
-
-//TODO: implement this method to return a list of all the users
-// EXample: return ResponseEntity.ok(userService.getAllUsers());
-//Temporary response
-
-/**
-     * This method returns a specific user based on the userIdpackage com.cbfacademy.apiassessment.controller;
-     
-     import org.springframework.http.ResponseEntity;
-     
-     //Class definition section
-     
-     // This sets the base path for all request in this controller
-     
-     /**
-      * This methods returns all the users.
-      * @return a list of all the users
-     */
-     
-     //TODO: implement this method to return a list of all the users
-     // EXample: return ResponseEntity.ok(userService.getAllUsers());
-     //Temporary response
-     
-     /**
-      * This method returns a specific user based on the userId
-      * @param userId the userId of the user
-      * @return the user with the given userId
-      */
-     
-     //TODO: implement this method to return user by userID
-     //Example: return ResponseEntity.ok(userService.getUserById(userId));
-     return ResponseEntity.ok().build(); // Temporary response
-     }
-     // Additional methods for other operations (e.g., create, update, delete) can be added here.// Additional methods for other operations (e.g., create, update, delete) can be added here. 
-     
-     //Define methods to handle request here.
-     import org.springframework.web.bind.annotation.*;
-     
-     import java.util.List;
-     
-     import org.springframework.http.ResponseEntity;
-     
-     //Class needed to be implemented in the controller
-     
-     }
-     * @param userId the userId of the user
-     * @return the user with the given userId
-     */
-
-//TODO: implement this method to return user by userID
-//Example: return ResponseEntity.ok(userService.getUserById(userId));
-return ResponseEntity.ok().build(); // Temporary response
-    }
-// Additional methods for other operations (e.g., create, update, delete) can be added here.// Additional methods for other operations (e.g., create, update, delete) can be added here. 
-
-//Define methods to handle request here.
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
+ //Class definition section
+@RestController // Indicates that this class is a controller
+@RequestMapping("/api/users") // Base path for all requests handled by this controller
+public class UserController {
+    // Class body
 
+   @Autowired // This sets the base path for all requests handled by this controller
+   private UserService userService;  // Assuming you have a UserService
 
-
-//Class needed to be implemented in the controller
-
+   // Get all users
+   @GetMapping("/") // Endpoint for getting all users
+   public ResponseEntity<List<User>> getAllUsers() {
+        // Implement this method to return a list of all the users
+        // Example: return ResponseEntity.ok(userService.getAllUsers());
+        return ResponseEntity.ok().build(); // Temporary response
 }
+
+    // Get user by ID
+    @GetMapping("/{userId}") // Endpoint for getting a user by ID
+    public ResponseEntity<User> getUserById(@PathVariable Long userId) {
+        // Implement this method to return user by userID
+        // Example: return ResponseEntity.ok(userService.getUserById(userId));
+        return ResponseEntity.ok().build(); // Temporary response
+    }
+
+    // Additional methods for other operations (create, update, delete) can be added here.  
+} //End of UserController class
+
+
+
+
