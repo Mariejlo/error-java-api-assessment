@@ -29,8 +29,4 @@ public String getCategory() {
     return category;
 }
    
-    //Inheritance and use with subclasses
-public class FoodItem extends FoodCatalogue {
-    
-}
 
