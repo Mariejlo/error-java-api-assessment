@@ -1,16 +1,12 @@
-package com.cbfacademy.apiassessment.service;
-
-public class FoodItemServiceImpl implements FoodItemService {
-
-}
-    
 package com.cbfacademy.foodcatalogue.subclassfooditem.service;
 
+import com.cbfacademy.foodcatalogue.subclassfooditem.exception.ResourceNotFoundException;
 import com.foodcatalogue.model.FoodItem;
 import com.foodcatalogue.repository.FoodItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service //Declare the class as a service
@@ -22,7 +18,7 @@ public class FoodItemServiceImpl implements FoodItemService {
     @Override //Method 
     public FoodItem saveFoodItem(FoodItem foodItem) {
         // Validate foodItem before saving (optional)
-        // Save the new FoodItem to the database
+        validateFoodItem(foodItem); // Ensure this method is implemented
         return foodItemRepository.save(foodItem);
     }
 
@@ -44,20 +40,37 @@ public class FoodItemServiceImpl implements FoodItemService {
         FoodItem existingFoodItem = foodItemRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("FoodItem not found with id: " + id));
 
+        
+        // Transactional method example for data integrity
+        // Logic to update a food item
+    }
+        //Update properties from foodItemDetails to existingFoodItem
+        updateProperties(existingFoodItem, foodItemDetails);
+        return foodItemRepository.save(existingFoodItem);
+    }
+    @Override
+    public void deleteFoodItem(Long id) {
+        //Ensure proper exception handling if food item does not exist
+        foodItemRepository.deleteById(id);
+    }
+       // Implement additional methods like calculateTotalCalories here
+       // Additional enhancements and extras such as logging, input validation, error messages and exception handling
+
+    private void validateFoodItem(FoodItem foodItem) {
+        // Implement your validation logic here
+        // Example: Check if the food item's name is not empty, the calories are positive, etc.
+    }
+
+    private void updateProperties(FoodItem existingFoodItem, FoodItem foodItemDetails) {
+        // Update the necessary field from foodItemDetails to existingFoodItem
         existingFoodItem.setName(foodItemDetails.getName());
         existingFoodItem.setCalories(foodItemDetails.getCalories());
         existingFoodItem.setDescription(foodItemDetails.getDescription());
         existingFoodItem.setPrice(foodItemDetails.getPrice());
-        return foodItemRepository.save(existingFoodItem);
-        // Transactional method example for data integrity
-        // Logic to update a food item
+        // Add more properties if necessary
     }
-
-    @Override
-    public void deleteFoodItem(Long id) {
-        foodItemRepository.deleteById(id);
-    }
-    
-    // Implement additional methods like calculateTotalCalories here
-    // Additional enhancements and extras such as logging, input validation, error messages and exception handling
 }
+
+    
+    // Copy properties from foodItemDetails to existingFoodItem
+        // Consider using a library like MapStruct for more complex mappings
