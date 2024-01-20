@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
 }
 
     // Create the Error Message class (optional)
-    package foodcatalogue.subclassfooditem.advice;
+    package com.cbfacademy.foodcatalogue.subclassfooditem.advice;
 
     public class ErrorMessage { //Class to send back consistent error response format
         private final int statusCode;

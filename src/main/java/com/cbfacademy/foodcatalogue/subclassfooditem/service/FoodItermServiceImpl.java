@@ -4,7 +4,7 @@ public class FoodItemServiceImpl implements FoodItemService {
 
 }
     
-package foodcatalogue.subclassfooditem.service;
+package com.cbfacademy.foodcatalogue.subclassfooditem.service;
 
 import com.foodcatalogue.model.FoodItem;
 import com.foodcatalogue.repository.FoodItemRepository;

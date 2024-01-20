@@ -5,7 +5,7 @@ public class FoodItemRepository {
 }
 //Interfaces here adding stock, check whats is available, updating quantities, removing items
 //Interacts with database JSOn file to ensure maintenance.
-package foodcatalogue.subclassfooditem.repository;
+package com.cbfacademy.foodcatalogue.subclassfooditem.repository;
 
 import com.foodcatalogue.model.FoodItem;
 import org.springframework.data.jpa.repository.JpaRepository;

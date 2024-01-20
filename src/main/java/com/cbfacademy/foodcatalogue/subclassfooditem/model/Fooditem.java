@@ -1,4 +1,4 @@
-    package foodcatalogue.subclassfooditem.model;
+    package com.cbfacademy.foodcatalogue.subclassfooditem.model;
     
     import javax.persistence.Entity;
     import javax.persistence.GeneratedValue;

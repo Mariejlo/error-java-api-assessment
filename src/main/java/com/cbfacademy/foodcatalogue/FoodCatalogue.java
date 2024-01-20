@@ -1,4 +1,4 @@
-package foodcatalogue;
+package com.cbfacademy.foodcatalogue;
 
 /**
  * Represents the general characteristics of food items in the catalogue.

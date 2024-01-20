@@ -1,4 +1,4 @@
-package foodcatalogue.subclassfooditem.controller;
+package com.cbfacademy.foodcatalogue.subclassfooditem.controller;
 
 import org.springframework.http.ResponseEntity;
 

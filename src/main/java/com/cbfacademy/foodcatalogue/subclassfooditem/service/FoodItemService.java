@@ -69,7 +69,7 @@ public class FoodItemServiceImpl implements FoodItemService {
     
     }
     //Additional enhancements and extras such as Exception handling
-    package foodcatalogue.subclassfooditem.service;
+    package com.cbfacademy.foodcatalogue.subclassfooditem.service;
 
     import com.foodcatalogue.model.FoodItem;
     import java.util.List;
