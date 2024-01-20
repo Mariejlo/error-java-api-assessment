@@ -8,7 +8,30 @@
     import javax.validation.constraints.NotNull;
     import javax.validation.constraints.Size;
 
-  
+    package foodcatalogue;
+
+public class FoodItem extends FoodCatalogue {
+    // Attributes specific to FoodItem
+    private String itemName;
+    private double calories;
+    // ... other attributes
+    
+    // Constructor
+    public FoodItem(String itemName, double calories) {
+        this.itemName = itemName;
+        this.calories = calories;
+        // ... initialization of other attributes
+    }
+    
+    // Methods specific to FoodItem
+    public void displayItemDetails() {
+        // Code to display item details
+    }
+
+    // Getters and setters for private attributes
+    // ...
+}
+
     
     @Entity
     public class FoodItem {
