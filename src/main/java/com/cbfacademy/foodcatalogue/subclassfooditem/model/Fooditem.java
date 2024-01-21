@@ -84,13 +84,26 @@ public class FoodItem extends FoodCatalogue {
                '}';
 
     }
+      /**
+       * Calculates the total caloric value of the food item based on its macronutrient content.
+       * Uses the standard nutritional values:
+       * - Carbohydrates: 4 calories per gram
+       * - Proteins: 4 calories per gram
+       * - Fats: 9 calories per gram
+       * 
+       * @return the total caloric value of the food item.
+       */
+public double calculateTotalCalories() {
+    // ... method implementation ...
+}
+
     // Method to calculate total calories of the food item
     public double calculateTotalCalories() {
         // Assuming you want to sum these values; adjust the formula as needed
         return (fats*9) + (proteins*4) + (carbohydrates*4);
         //return calories;
         //return (fats*9) + (proteins*4) + (carbohydrates*4) + (sugars*4);
-        
+
 
     }
 }  
