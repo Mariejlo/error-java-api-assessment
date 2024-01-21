@@ -87,7 +87,10 @@ public class FoodItem extends FoodCatalogue {
     // Method to calculate total calories of the food item
     public double calculateTotalCalories() {
         // Assuming you want to sum these values; adjust the formula as needed
-        return calories + fats + proteins + carbohydrates;
+        return (fats*9) + (proteins*4) + (carbohydrates*4);
+        //return calories;
+        //return (fats*9) + (proteins*4) + (carbohydrates*4) + (sugars*4);
+        
 
     }
 }  
