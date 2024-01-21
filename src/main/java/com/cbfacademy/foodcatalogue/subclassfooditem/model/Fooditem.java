@@ -19,10 +19,21 @@ public class FoodItem extends FoodCatalogue {
     
     @Entity
     public class FoodItem {
+        @Min(value = 0, message = "Calories cannot be negative") 
         private double calories;
+
+        @Min(value = 0, message = "Fats cannot be negative") 
         private double fats;
+
+        @Min(value = 0, message = "Proteins cannot be negative") 
         private double proteins;
+
+        @Min(value = 0, message = "Carbohydrates cannot be negative") 
         private double carbohydrates;
+
+        @Min(value = 0, message = "Sugars cannot be negative") 
+        private double sugars; 
+
         private Long id;
         private String name;
         private String servingSize;
@@ -77,6 +88,6 @@ public class FoodItem extends FoodCatalogue {
     public double calculateTotalCalories() {
         // Assuming you want to sum these values; adjust the formula as needed
         return calories + fats + proteins + carbohydrates;
-        
+
     }
 }  
