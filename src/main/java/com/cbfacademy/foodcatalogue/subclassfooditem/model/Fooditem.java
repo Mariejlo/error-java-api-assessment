@@ -19,7 +19,14 @@ public class FoodItem extends FoodCatalogue {
     
     @Entity
     public class FoodItem {
-    
+        private double calories;
+        private double fats;
+        private double proteins;
+        private double carbohydrates;
+        private Long id;
+        private String name;
+        private String servingSize;
+        private Integer caloriesPerServing;    
    
         }
         @Id 
@@ -66,5 +73,10 @@ public class FoodItem extends FoodCatalogue {
                '}';
 
     }
-
+    // Method to calculate total calories of the food item
+    public double calculateTotalCalories() {
+        // Assuming you want to sum these values; adjust the formula as needed
+        return calories + fats + proteins + carbohydrates;
+        
+    }
 }  
