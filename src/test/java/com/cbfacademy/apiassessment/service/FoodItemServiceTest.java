@@ -6,6 +6,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -16,6 +17,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.cbfacademy.apiassessment.model.FoodItem;
 import com.cbfacademy.apiassessment.repository.FoodItemRepository;
 import com.cbfacademy.foodcatalogue.subclassfooditem.service.FoodItemService;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
 @SpringBootTest
 @ExtendWith(MockitoExtension.class) // Mock creation of the service talks to JUnit 
 public class FoodItemServiceTest {
@@ -26,6 +32,15 @@ public class FoodItemServiceTest {
 
     @InjectMocks  //Creates an instance of the service
     private FoodItemService foodItemService;
+
+    private FoodItem testFoodItem;
+
+    @BeforeEach
+    void setUp() {
+        testFoodItem = new FoodItem(/* parameters */); // Initialize your FoodItem object here
+        // Set up any other necessary test data
+    }
+
     @Test //Single functionality test
     void whenSaveFoodItem_thenReturnFoodItem() {
         // Arrange
@@ -48,6 +63,12 @@ public class FoodItemServiceTest {
        
     @Test
     void whenCalculateTotalCalories_thenReturnCorrectValue() {
+        List<FoodItem> foodItemList = Arrays.asList(testFoodItem);
+        when(foodItemRepository.findAll()).thenReturn(foodItemList);
+
+        List<FoodItem> result = foodItemService.getAllFoodItems();
+        
+
         // Arrange: Create a FoodItem with known nutritional values
         FoodItem foodItem = new FoodItem();
         foodItem.setCalories(100);
