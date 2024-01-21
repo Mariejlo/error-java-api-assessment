@@ -48,17 +48,32 @@ class FoodItemTest {
 		assertEquals(200, response.getStatusCode().value());
 		assertEquals("Hello John", response.getBody());
 	}
+	
 	public class FoodItemTest {
-    @Test
-    public void testCalculateTotalCalories() {
-        FoodItem foodItem = new FoodItem();
-        foodItem.setCarbohydrates(10);
-        foodItem.setProteins(10);
-        foodItem.setFats(10);
+		/**
+         * This class tests the functionalities of the FoodItem model,
+         * especially the calculateTotalCalories method.
+         */
+        @Test
+        public void testCalculateTotalCalories() {
+			// Arrange
+            FoodItem foodItem = new FoodItem();
+            foodItem.setCarbohydrates(10);
+            foodItem.setProteins(10);
+            foodItem.setFats(10);
+			foodItem.setSugars(10);
+			System.out.println(foodItem);
+			System.out.println(foodItem.calculateTotalCalories());
+			 
 
-        double expectedCalories = (10 * 4) + (10 * 4) + (10 * 9);
-        assertEquals(expectedCalories, foodItem.calculateTotalCalories());
-		   //... add more test cases...
+			// Act
+			double actualCalories = foodItem.calculateTotalCalories();
+			System.out.println(actualCalories);
+
+			// Assert
+		    double expectedCalories = (10 * 4) + (10 * 4) + (10 * 9);
+            assertEquals(expectedCalories, foodItem.calculateTotalCalories());
+			   //... add more test cases...
 		                              		   
     }
 
