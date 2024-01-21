@@ -51,7 +51,13 @@ public class FoodItemController {
         foodItemService.deleteFoodItem(id);
         return ResponseEntity.noContent().build();
     }
-
+     //New endpoint for obtaining total calories and extras
+     @PostMapping("/calculateCalories")
+     public ResponseEntity<Double> calculateTotalCalories(@RequestBody List<FoodItem> foodItems) {
+        double totalCalories = foodItemService.calculateTotalCalories(foodItems);
+        return ResponseEntity.ok(totalCalories);
+         
+}
     // Additional methods for other operations can be added here
 }
 

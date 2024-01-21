@@ -25,7 +25,41 @@ public interface FoodItemService {
     void deleteFoodItem(Long id);
     
     // Additional methods like calculateTotalCalories can be defined here
-}
+    // Define the signature of the calculateTotalCalories method
+    double calculateTotalCalories(List<FoodItem> foodItems);
+     
+
+
+// ... other fields and getters/setters
+ public double getCalories() {
+        return calories;
+    
+        }
+    public void setCalories(double calories) {
+        this.calories = calories;
+          }
+    public double getFats() {
+        return fats;
+          }
+    public void setFats(double fats) {
+        this.fats = fats;
+          }
+    public double getProteins() {
+        return proteins;
+          }
+    public void setProteins(double proteins) {
+        this.proteins = proteins;
+          }
+    public double getCarbohydrates() {
+        return carbohydrates;
+          }
+    public void setCarbohydrates(double carbohydrates) {
+        this.carbohydrates = carbohydrates;
+          }
+          public double calculateTotalCalories() {
+        return calories + fats + proteins + carbohydrates; 
+          
+    }
 
 
 

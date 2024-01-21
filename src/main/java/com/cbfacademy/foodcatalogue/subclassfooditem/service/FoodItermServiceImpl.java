@@ -69,6 +69,13 @@ public class FoodItemServiceImpl implements FoodItemService {
         existingFoodItem.setPrice(foodItemDetails.getPrice());
         // Add more properties if necessary
     }
+    @Override //Assuming you want to sum these values; adjust the formula as needed
+    public double calculateTotalCalories(List<FoodItem> foodItems) {
+        return foodItems.stream()
+                    .mapToDouble(FoodItem::getCalories) //Use the method from the FoodItem class
+                    .sum();
+                     
 }
+
         // Copy properties from foodItemDetails to existingFoodItem
         // Consider using a library like MapStruct for more complex mappings
