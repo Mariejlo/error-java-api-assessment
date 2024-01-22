@@ -61,7 +61,7 @@ public class FoodItemServiceTest {
         verifyZeroInteractions(foodItemService);
         verifyZeroInteractions(foodItemRepository);
        
-    @Test
+    @Test // calculates the total calories helps to ensure that the method works correctly
     void whenCalculateTotalCalories_thenReturnCorrectValue() {
         List<FoodItem> foodItemList = Arrays.asList(testFoodItem);
         when(foodItemRepository.findAll()).thenReturn(foodItemList);
