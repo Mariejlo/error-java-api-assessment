@@ -6,8 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.cbfacademy.apiassessment.repository.FoodItemRepository;
-import java.util.Optional;
+
+import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem;
+import com.cbfacademy.foodcatalogue.subclassfooditem.repository.FoodItemRepository;
+import com.cbfacademy.foodcatalogue.subclassfooditem.service.FoodItemServiceImpl;
 
 @SpringBootTest //test supported by Spring Boot
 public class FoodItemServiceImplTest {
