@@ -136,7 +136,7 @@ Alternatively, to start the API from the terminal, run the following command:
 ```sh
 ./mvnw spring-boot:run
 ```
-
+m
 Or on Windows:
 
 ```cmd
