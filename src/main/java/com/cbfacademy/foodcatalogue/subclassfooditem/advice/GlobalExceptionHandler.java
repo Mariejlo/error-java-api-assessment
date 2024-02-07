@@ -1,14 +1,12 @@
-
-
-public class globalExceptionHandler {
-    
-}
-package com.foodcatalogue.exception;
+package com.cbfacademy.foodcatalogue.subclassfooditem.advice;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+
+import com.cbfacademy.foodcatalogue.subclassfooditem.exception.ResourceNotFoundException;
+
 import org.springframework.http.HttpStatus;
 
 @ControllerAdvice //Methods are now applicable to all controllers
@@ -29,27 +27,4 @@ public class GlobalExceptionHandler {
     public ErrorMessage handleException(Exception ex) { 
         return new ErrorMessage(HttpStatus.INTERNAL_SERVER_ERROR.value(), "An  unexpected error has occurred");
     }
-}
-
-    // Create the Error Message class (optional)
-    package com.cbfacademy.foodcatalogue.subclassfooditem.advice;
-
-    public class ErrorMessage { //Class to send back consistent error response format
-        private final int statusCode;
-        private final String message;
-
-        public ErrorMessage(int statusCode, String message) {
-            this.statusCode = statusCode;
-            this.message = message;
-        }
-        
-         // Getters
-    public int getStatusCode() {
-        return statusCode;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-    
 }

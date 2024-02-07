@@ -6,8 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.cbfacademy.apiassessment.repository.FoodItemRepository;
-import java.util.Optional;
+
+import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem2;
+import com.cbfacademy.foodcatalogue.subclassfooditem.repository.FoodItemRepository;
+import com.cbfacademy.foodcatalogue.subclassfooditem.service.FoodItemServiceImpl;
 
 @SpringBootTest //test supported by Spring Boot
 public class FoodItemServiceImplTest {
@@ -21,12 +23,12 @@ public class FoodItemServiceImplTest {
     @Test //Single functionality test
     void whenSaveFoodItem_thenReturnFoodItem() {
         // Arrange
-        FoodItem inputFoodItem = new FoodItem(/* parameters */);
-        FoodItem savedFoodItem = new FoodItem(/* parameters */);
-        when(foodItemRepository.save(any(FoodItem.class))).thenReturn(savedFoodItem);
+        FoodItem2 inputFoodItem = new FoodItem2(/* parameters */);
+        FoodItem2 savedFoodItem = new FoodItem2(/* parameters */);
+        when(foodItemRepository.save(any(FoodItem2.class))).thenReturn(savedFoodItem);
 
         // Act
-        FoodItem result = foodItemService.saveFoodItem(inputFoodItem);
+        FoodItem2 result = foodItemService.saveFoodItem(inputFoodItem);
 
         // Assert
         assertNotNull(result);
