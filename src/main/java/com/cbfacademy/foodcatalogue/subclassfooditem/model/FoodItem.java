@@ -14,7 +14,7 @@ import jakarta.validation.constraints.Size;
  * Represents a specific food item in the catalogue.
  */
 @Entity
-public class FoodItem2 extends FoodCatalogue {
+public class FoodItem extends FoodCatalogue {
     // FoodItem specific attributes, constructors, methods
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,12 +33,12 @@ public class FoodItem2 extends FoodCatalogue {
     private Integer caloriesPerServing; // Number of calories per serving (e.g. 100, 1000)
     // If we got extra time more attributes like price, category will be added
 
-    public FoodItem2() {
+    public FoodItem() {
         // No argument constructor
     }
 
     // Constructor with all the attributes
-    public FoodItem2(Long id, String name, String servingSize, Integer caloriesPerServing) {
+    public FoodItem(Long id, String name, String servingSize, Integer caloriesPerServing) {
         this.id = id;
         this.name = name;
         this.servingSize = servingSize;

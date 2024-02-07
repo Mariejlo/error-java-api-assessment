@@ -7,7 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem2;
+import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem;
 import com.cbfacademy.foodcatalogue.subclassfooditem.repository.FoodItemRepository;
 import com.cbfacademy.foodcatalogue.subclassfooditem.service.FoodItemServiceImpl;
 
@@ -23,12 +23,12 @@ public class FoodItemServiceImplTest {
     @Test //Single functionality test
     void whenSaveFoodItem_thenReturnFoodItem() {
         // Arrange
-        FoodItem2 inputFoodItem = new FoodItem2(/* parameters */);
-        FoodItem2 savedFoodItem = new FoodItem2(/* parameters */);
-        when(foodItemRepository.save(any(FoodItem2.class))).thenReturn(savedFoodItem);
+        FoodItem inputFoodItem = new FoodItem(/* parameters */);
+        FoodItem savedFoodItem = new FoodItem(/* parameters */);
+        when(foodItemRepository.save(any(FoodItem.class))).thenReturn(savedFoodItem);
 
         // Act
-        FoodItem2 result = foodItemService.saveFoodItem(inputFoodItem);
+        FoodItem result = foodItemService.saveFoodItem(inputFoodItem);
 
         // Assert
         assertNotNull(result);

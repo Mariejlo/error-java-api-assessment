@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem2;
+import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem;
 import com.cbfacademy.foodcatalogue.subclassfooditem.service.FoodItemService;
 
 import jakarta.validation.Valid;
@@ -28,37 +28,37 @@ public class FoodItemController {
     private FoodItemService foodItemService;
 
     @GetMapping
-    List<FoodItem2> getAllFoodItems() { // Fetches all the food items from the database (REVISION NEEDED)
+    List<FoodItem> getAllFoodItems() { // Fetches all the food items from the database (REVISION NEEDED)
 
         return foodItemService.getAllFoodItems();
     }
 
     @GetMapping("/{id}") // Fetches a specific food item/single responsibility by ID
-    public ResponseEntity<FoodItem2> getFoodItemById(@PathVariable("id") Long id) { // Path variable is a method
+    public ResponseEntity<FoodItem> getFoodItemById(@PathVariable("id") Long id) { // Path variable is a method
                                                                                    // parameter bound to URI template
                                                                                    // variable
-        FoodItem2 foodItem = foodItemService.getFoodItemById(id);
+        FoodItem foodItem = foodItemService.getFoodItemById(id);
         return ResponseEntity.ok().body(foodItem);
     }
 
     @PostMapping // Createa a new food item with validation
-    public ResponseEntity<FoodItem2> createFoodItem(@Valid @RequestBody FoodItem2 foodItem) { // @Valid if validation
+    public ResponseEntity<FoodItem> createFoodItem(@Valid @RequestBody FoodItem foodItem) { // @Valid if validation
                                                                                             // fails , Spring return 400
                                                                                             // bad request response
-        FoodItem2 savedFoodItem = foodItemService.saveFoodItem(foodItem); // Method parameter bound to body of the web
+        FoodItem savedFoodItem = foodItemService.saveFoodItem(foodItem); // Method parameter bound to body of the web
                                                                          // request
         return ResponseEntity.ok().body(savedFoodItem);
     }
 
     @PutMapping("/{id}") // Updates a specific food item with new details
-    public ResponseEntity<FoodItem2> updateFoodItem(@PathVariable("id") Long id,
-            @RequestBody FoodItem2 foodItemDetails) {
-        FoodItem2 updatedFoodItem = foodItemService.updateFoodItem(id, foodItemDetails);
+    public ResponseEntity<FoodItem> updateFoodItem(@PathVariable("id") Long id,
+            @RequestBody FoodItem foodItemDetails) {
+        FoodItem updatedFoodItem = foodItemService.updateFoodItem(id, foodItemDetails);
         return ResponseEntity.ok().body(updatedFoodItem);
     }
 
     @DeleteMapping("/{id}") // Deletes
-    public ResponseEntity<FoodItem2> deleteFoodItem(@PathVariable("id") Long id) {
+    public ResponseEntity<FoodItem> deleteFoodItem(@PathVariable("id") Long id) {
         foodItemService.deleteFoodItem(id);
         return ResponseEntity.noContent().build();
     }
