@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException; // Import EntityNotFoundException
+
 import java.util.List;
 
 @Service // Declare the class as a service
@@ -43,18 +45,25 @@ public class FoodItemServiceImpl implements FoodItemService {
 
         // Transactional method example for data integrity
         // Logic to update a food item
+        // Call the method to update properties
+        updateProperties(existingFoodItem, foodItemDetails); // Call the method to update properties
+        return foodItemRepository.save(existingFoodItem); // Return the updated food item
     }
 
     // Update properties from foodItemDetails to existingFoodItem
-    public FoodItem updateProperties(existingFoodItem, foodItemDetails);    
-       return foodItemRepository.save(existingFoodItem);
+    private void updateProperties(FoodItem existingFoodItem, FoodItem foodItemDetails) {
+        existingFoodItem.setName(foodItemDetails.getName());
+        existingFoodItem.setCalories(foodItemDetails.getCalories());
+        existingFoodItem.setDescription(foodItemDetails.getDescription());
+        existingFoodItem.setPrice(foodItemDetails.getPrice());
+        // Add more properties if necessary
     }
 
     @Override
     public void deleteFoodItem(Long id) {
-        // Ensure proper exception handling if food item does not exist
         foodItemRepository.deleteById(id);
-    }
+    }     
+     
     // Implement additional methods like calculateTotalCalories here
     // Additional enhancements and extras such as logging, input validation, error
     // messages and exception handling
@@ -64,21 +73,14 @@ public class FoodItemServiceImpl implements FoodItemService {
         // Example: Check if the food item's name is not empty, the calories are
         // positive, etc.
     }
-
-    private void updateProperties(FoodItem existingFoodItem, FoodItem foodItemDetails) {
-        // Update the necessary field from foodItemDetails to existingFoodItem
-        existingFoodItem.setName(foodItemDetails.getName());
-        existingFoodItem.setCalories(foodItemDetails.getCalories());
-        existingFoodItem.setDescription(foodItemDetails.getDescription());
-        existingFoodItem.setPrice(foodItemDetails.getPrice());
-        // Add more properties if necessary
-    }
+    
 
     @Override //Assuming you want to sum these values; adjust the formula as needed
     public double calculateTotalCalories(List<FoodItem> foodItems) {
         return foodItems.stream()
                     .mapToDouble(FoodItem::getCalories) //Use the method from the FoodItem class
                     .sum();
+    }
                      
 }
 
