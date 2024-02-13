@@ -1,4 +1,4 @@
-package com.cbfacademy.foodcatalogue.subclassfooditem.advice;
+package com.cbfacademy.foodcatalogue.subclassfooditem.exception;
 
 public class ErrorMessage { //Class to send back consistent error response format
     

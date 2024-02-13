@@ -13,6 +13,7 @@ import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import com.cbfacademy.foodcatalogue.subclassfooditem.exception.ErrorMessage;
 import com.cbfacademy.foodcatalogue.subclassfooditem.exception.ResourceNotFoundException; // Correct import
 
 
