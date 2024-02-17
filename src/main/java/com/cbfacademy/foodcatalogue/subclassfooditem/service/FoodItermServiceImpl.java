@@ -72,6 +72,13 @@ public class FoodItemServiceImpl implements FoodItemService {
         // Implement your validation logic here
         // Example: Check if the food item's name is not empty, the calories are
         // positive, etc.
+        if(foodItem.getName() == null || foodItem.getName().trim().isEmpty()) {
+            throw new IllegalArgumentException("Food item name cannot be empty");
+        }
+        if(foodItem.getCalories() < 0) {
+            throw new IllegalArgumentException("Calories cannot be negative");
+        }
+        // Add more validations as necessary
     }
     
 
