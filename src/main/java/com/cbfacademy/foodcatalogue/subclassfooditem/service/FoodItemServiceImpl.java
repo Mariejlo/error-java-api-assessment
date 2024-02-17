@@ -32,14 +32,14 @@ public class FoodItemServiceImpl implements FoodItemService {
     @Override
     public FoodItem getFoodItemById(Long id) {
         // Exception handling example
-        return foodItemRepository.getFoodItemById(id);
+        return foodItemRepository.getFoodItemById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("FoodItem", "id", id));
     }
 
     @Override
     @Transactional // Fetch, update and save
     public FoodItem updateFoodItem(Long id, FoodItem foodItemDetails) {
-        FoodItem existingFoodItem = foodItemRepository.getFoodItemById(id);
+        FoodItem existingFoodItem = foodItemRepository.getFoodItemById(id)
                 .orElseThrow(() -> new EntityNotFoundException("FoodItem not found with id: " + id));
 
         // Transactional method example for data integrity
