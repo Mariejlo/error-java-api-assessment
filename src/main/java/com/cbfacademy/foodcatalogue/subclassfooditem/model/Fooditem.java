@@ -7,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 import java.util.ArrayList;
 import java.util.List;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Min;
 
 @Entity
 public class FoodItem extends FoodCatalogue {
@@ -153,12 +156,8 @@ public class FoodItem extends FoodCatalogue {
      * @return the total caloric value of the food item.
      */
     public double calculateTotalCalories() {
-
-        // Method to calculate total calories of the food item
-        // Assuming you want to sum these values; adjust the formula as needed
         return (fats * 9) + (proteins * 4) + (carbohydrates * 4);
-        // return calories;
-        // return (fats*9) + (proteins*4) + (carbohydrates*4) + (sugars*4);
-
+        
     }
-}
+
+
