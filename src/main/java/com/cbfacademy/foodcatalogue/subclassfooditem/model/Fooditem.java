@@ -50,138 +50,115 @@ public class FoodItem extends FoodCatalogue {
             // Constructor code no arguments
         }
 
-        private Long id;
-        private String name;
-        private String servingSize;
-        private Integer caloriesPerServing;
+        public Long getId() {
+            return id;
+        }
 
-    }
+        public void setId(Long id) {
+            this.id = id;
+        }
 
-    public FoodItem() {
-        // No argument constructor
-    }
+        public String getName() {
+            return name;
+        }
 
-    // Constructor with all the attributes
-    public FoodItem(Long id, String name, String servingSize, Integer caloriesPerServing) {
-        this.id = id;
-        this.name = name;
-        this.servingSize = servingSize;
-        this.caloriesPerServing = caloriesPerServing;
-        this.fats = fats;
-        this.proteins = proteins;
-        this.carbohydrates = carbohydrates;
-        this.sugars = sugars;
-    }
+        public void setName(String name) {
+            this.name = name;
+        }
 
-    // Getters and setters for all attributes
-    public Long getId() {
-        return id;
-    }
+        public String getServingSize() {
+            return servingSize;
+        }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+        public void setServingSize(String servingSize) {
+            this.servingSize = servingSize;
+        }
 
-    public String getName() {
-        return name;
-    }
+        public Integer getCaloriesPerServing() {
+            return caloriesPerServing;
+        }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+        public void setCaloriesPerServing(Integer caloriesPerServing) {
+            this.caloriesPerServing = caloriesPerServing;
+        }
 
-    public String getServingSize() {
-        return servingSize;
-    }
+        public double getCalories() {
+            return calories;
+        }
 
-    public void setServingSize(String servingSize) {
-        this.servingSize = servingSize;
-    }
+        public void setCalories(double calories) {
+            this.calories = calories;
+        }
 
-    public Integer getCaloriesPerServing() {
-        return caloriesPerServing;
-    }
+        public double getFats() {
+            return fats;
+        }
 
-    public void setCaloriesPerServing(Integer caloriesPerServing) {
-        this.caloriesPerServing = caloriesPerServing;
-    }
+        public void setFats(double fats) {
+            this.fats = fats;
+        }
 
-    public double getCalories() {
-        return calories;
-    }
+        public double getProteins() {
+            return proteins;
+        }
 
-    public void setCalories(double calories) {
-        this.calories = calories;
-    }
+        public void setProteins(double proteins) {
+            this.proteins = proteins;
+        }
 
-    public double getFats() {
-        return fats;
-    }
+        public double getCarbohydrates() {
+            return carbohydrates;
+        }
 
-    public void setFats(double fats) {
-        this.fats = fats;
-    }
+        public void setCarbohydrates(double carbohydrates) {
+            this.carbohydrates = carbohydrates;
+        }
 
-    public double getProteins() {
-        return proteins;
-    }
+        public double getSugars() {
+            return sugars;
+        }
 
-    public void setProteins(double proteins) {
-        this.proteins = proteins;
-    }
+        public void setSugars(double sugars) {
+            this.sugars = sugars;
+        }
 
-    public double getCarbohydrates() {
-        return carbohydrates;
-    }
+        public double calculateTotalCalories() {
+            return fats * 9 + proteins * 4 + carbohydrates * 4;
+        }
 
-    public void setCarbohydrates(double carbohydrates) {
-        this.carbohydrates = carbohydrates;
-    }
-
-    public double getSugars() {
-        return sugars;
-    }
-
-    public void setSugars(double sugars) {
-        this.sugars = sugars;
-    }
-
-    public double calculateTotalCalories() {
-        return fats * 9 + proteins * 4 + carbohydrates * 4;
-    }
-
-    @Override
-    public String toString() {
-        return "FoodItem{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", servingSize='" + servingSize + '\'' +
-                ", caloriesPerServing=" + caloriesPerServing +
-                ", calories=" + calories +
-                ", fats=" + fats +
-                ", proteins=" + proteins +
-                ", carbohydrates=" + carbohydrates +
-                ", sugars=" + sugars +
-                '}';
+        @Override
+        public String toString() {
+            return "FoodItem{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    ", servingSize='" + servingSize + '\'' +
+                    ", caloriesPerServing=" + caloriesPerServing +
+                    ", calories=" + calories +
+                    ", fats=" + fats +
+                    ", proteins=" + proteins +
+                    ", carbohydrates=" + carbohydrates +
+                    ", sugars=" + sugars +
+                    '}';
+        }
     }
 }
-      /**
-       * Calculates the total caloric value of the food item based on its macronutrient content.
-       * Uses the standard nutritional values:
-       * - Carbohydrates: 4 calories per gram
-       * - Proteins: 4 calories per gram
-       * - Fats: 9 calories per gram
-       * 
-       * @return the total caloric value of the food item.
-       */
-public double calculateTotalCalories() {  
+    /**
+     * Calculates the total caloric value of the food item based on its
+     * macronutrient content.
+     * Uses the standard nutritional values:
+     * - Carbohydrates: 4 calories per gram
+     * - Proteins: 4 calories per gram
+     * - Fats: 9 calories per gram
+     * 
+     * @return the total caloric value of the food item.
+     */
+    public double calculateTotalCalories() {
 
-
-    // Method to calculate total calories of the food item
-    // Assuming you want to sum these values; adjust the formula as needed
-        return (fats*9) + (proteins*4) + (carbohydrates*4);
-        //return calories;
-        //return (fats*9) + (proteins*4) + (carbohydrates*4) + (sugars*4);
+        // Method to calculate total calories of the food item
+        // Assuming you want to sum these values; adjust the formula as needed
+        return (fats * 9) + (proteins * 4) + (carbohydrates * 4);
+        // return calories;
+        // return (fats*9) + (proteins*4) + (carbohydrates*4) + (sugars*4);
 
     }
-}  
+}
