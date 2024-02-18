@@ -7,12 +7,13 @@ package com.cbfacademy.foodcatalogue;
  * but should not be instantiated on its own.
  */
 public abstract class FoodCatalogue {
-    protected String category;
+
+    private String category;
 
     // Constructor (no-argument constructor)
     public FoodCatalogue() {
         // initialization code for common attributes this.category = category;
-        // Parameterized constructor useful for creating instances of subclasses
+        // //Parameterized constructor useful for creating instances of subclasses
     }
 
     // Parameterized constructor useful for creating instances of subclasses

@@ -1,21 +1,32 @@
-package com.cbfacademy.foodcatalogue.subclassfooditem.service;
+package com.example.foodcatalogue.service;
+
+import com.example.foodcatalogue.exception.ResourceNotFoundException;
+import com.example.foodcatalogue.model.FoodItem;
+import com.example.foodcatalogue.repository.FoodItemRepository;
 
 import java.util.List;
+/**
+ * Service interface for managing FoodItems.
+ * This interface defines the contract for FoodItem-related operations.
+ */
+public interface FoodItemService {
 
-import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem;
+    // Adds a new FoodItem to the database
+    FoodItem saveFoodItem(FoodItem foodItem) throws IOException;
 
-public interface FoodItemService { // This define the contract interface
+    // Retrieves all FoodItems from the database
+    List<FoodItem> getAllFoodItems();
 
-    FoodItem saveFoodItem(FoodItem foodItem); // Adds a new food item to the database
+    // Retrieves a FoodItem by its ID
+    FoodItem getFoodItemById(Long id) throws ResourceNotFoundException;
 
-    List<FoodItem> getAllFoodItems(); // Retrieves all the food items from the database
+    // Updates a FoodItem in the database
+    FoodItem updateFoodItem(Long id, FoodItem foodItemDetails) throws ResourceNotFoundException;
 
-    FoodItem getFoodItemById(Long id);
+    // Deletes a FoodItem from the database by its ID
+    void deleteFoodItem(Long id) throws ResourceNotFoundException;
 
-    FoodItem updateFoodItem(Long id, FoodItem foodItemDetails); // Updates a food item in the database
-
-    void deleteFoodItem(Long id); // Deletes a food item from the database
-
-    // Implement additional methods like calculateTotalCalories here
+    // Define the signature of the calculateTotalCalories method
+    double calculateTotalCalories(List<FoodItem> foodItems);
 
 }
