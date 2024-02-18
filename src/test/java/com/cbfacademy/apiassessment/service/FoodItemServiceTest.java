@@ -85,7 +85,7 @@ public class FoodItemServiceTest {
     @Test
     void whenGetAllFoodItems_thenReturnFoodItemList() {
         // Arrange: Create a list of FoodItems and set the repository to return this list when findAll is called
-        List<FoodItem> foodItemList = ArrayList<>();
+        List<FoodItem> expectedList = new ArrayList<>();
         expectedList.add(testFoodItem);
         when(foodItemRepository.findAll()).thenReturn(expectedList);
 
