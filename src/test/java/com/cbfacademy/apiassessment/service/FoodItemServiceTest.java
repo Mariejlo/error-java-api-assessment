@@ -37,73 +37,66 @@ public class FoodItemServiceTest {
 
     @BeforeEach
     void setUp() {
-        testFoodItem = new FoodItem(/* parameters */); // Initialize your FoodItem object here
-        // Set up any other necessary test data
+         // Initialize your FoodItem object here with the required parameters
+        testFoodItem = new FoodItem(); // Initialize your FoodItem object here
+        testFoodItem.setId(1L);
+        testFoodItem.setName("Test Food");
+        testFoodItem.setCalories(100);
+        testFoodItem.setFats(5);
+        testFoodItem.setProteins(10);
+        testFoodItem.setCarbohydrates(20);
     }
 
+    // Test for saving a food item successfully
     @Test //Single functionality test
     void whenSaveFoodItem_thenReturnFoodItem() {
         // Arrange
-        FoodItem inputFoodItem = new FoodItem(/* parameters */);
-        FoodItem savedFoodItem = new FoodItem(/* parameters */);
         when(foodItemRepository.save(any(FoodItem.class))).thenReturn(savedFoodItem);
 
         // Act: call the method you are testing
-        FoodItem result = foodItemService.saveFoodItem(inputFoodItem);
+        FoodItem result = foodItemService.saveFoodItem(testFoodItem);
 
         // Assert: checks that the results are as expected
-        assertNotNull(result, "The result should not be null");
-        assertEquals(savedFoodItem, result, "The result should be the same as the input");
-        verify(foodItemRepository.save(any(FoodItem.class));
-        verifyNoMoreInteractions(foodItemRepository);
-        verifyZeroInteractions(inputFoodItem);
-        verifyZeroInteractions(savedFoodItem);
-        verifyZeroInteractions(foodItemService);
-        verifyZeroInteractions(foodItemRepository);
+        assertNotNull(result, "The saved food item should not be null");
+        assertEquals(testFoodItem.getName(), result.getName(), "The name of the result should match the input");
+        // Verify interactions with the mock
+        verify(foodItemRepository).save(testFoodItem);
+    } 
+       
        
     @Test // calculates the total calories helps to ensure that the method works correctly
     void whenCalculateTotalCalories_thenReturnCorrectValue() {
-        List<FoodItem> foodItemList = Arrays.asList(testFoodItem);
-        when(foodItemRepository.findAll()).thenReturn(foodItemList);
-
-        List<FoodItem> result = foodItemService.getAllFoodItems();
+        List<FoodItem> foodItemList = List.of(testFoodItem);  // Create a list containing the test food item
         
-
-        // Arrange: Create a FoodItem with known nutritional values
-        FoodItem foodItem = new FoodItem();
-        foodItem.setCalories(100);
-        foodItem.setFats(20);
-        foodItem.setProteins(30);
-        foodItem.setCarbohydrates(50);
-        when(foodItemRepository.save(any(FoodItem.class))).thenReturn(foodItem);
-
+        
         // Act: Calculate the total calories
-        double totalCalories = foodItemService.calculateTotalCalories(List.of(foodItem)); 
+        double totalCalories = foodItemService.calculateTotalCalorie(foodItems); 
         // Assert: checks that the calories results are as expected
         double expectedCalories = 100; // Update this with the correct calculation based on your logic
         assertEquals(expectedCalories, totalCalories, "The calculated total calories should match the expected value");
-    }
+    
 
         assertNotNull(totalCalories), "The result should not be null";
         assertEquals(100 * 4 + 20 * 9 + 30 * 4 + 50 * 4, totalCalories), "The result should be the same as the input";
 
         
-        // Additional assertions as needed
-        // Add more test methods for getAllFoodItems, getFoodItemById, updateFoodItem, deleteFoodItem, calculateTotalCalories, etc.
-}
-    // Template for testing getAllFoodItems
+        
+    // Test for fetching all food items successfully
     @Test
     void whenGetAllFoodItems_thenReturnFoodItemList() {
         // Arrange: Create a list of FoodItems and set the repository to return this list when findAll is called
-        List<FoodItem> foodItemList = Arrays.asList(new FoodItem(/* parameters */), new FoodItem(/* parameters */));
-        when(foodItemRepository.findAll()).thenReturn(foodItemList);
+        List<FoodItem> foodItemList = ArrayList<>();
+        expectedList.add(testFoodItem);
+        when(foodItemRepository.findAll()).thenReturn(expectedList);
 
         // Act: Call the method under test
         List<FoodItem> result = foodItemService.getAllFoodItems();
 
         // Assert: Check that the returned list matches the mock list
-        assertNotNull(result, "The returned food item list should not be null");
-        assertEquals(foodItemList, result, "The returned food item list should match the mock list");
+        assertNotNull(result, "The food item list should not be null");
+        assertFalse(result.isEmpty(), "The food item list should not be empty");
+        assertEquals(expectedList.size(), result.size(), "The size of the result list should match the expected list");
+        
     }
             
         
