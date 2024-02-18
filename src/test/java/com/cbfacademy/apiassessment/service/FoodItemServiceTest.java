@@ -97,6 +97,8 @@ public class FoodItemServiceTest {
         assertFalse(result.isEmpty(), "The food item list should not be empty");
         assertEquals(expectedList.size(), result.size(), "The size of the result list should match the expected list");
         
+        // Verify interactions with the mock
+        verify(foodItemRepository).findAll();
     }
             
         
