@@ -52,9 +52,9 @@ public class FoodItemServiceTest {
         FoodItem result = foodItemService.saveFoodItem(inputFoodItem);
 
         // Assert: checks that the results are as expected
-        assertNotNull(result), "The result should not be null";
-        assertEquals(savedFoodItem, result), "The result should be the same as the input";
-        verify(foodItemRepository).save(any(FoodItem.class));
+        assertNotNull(result, "The result should not be null");
+        assertEquals(savedFoodItem, result, "The result should be the same as the input");
+        verify(foodItemRepository.save(any(FoodItem.class));
         verifyNoMoreInteractions(foodItemRepository);
         verifyZeroInteractions(inputFoodItem);
         verifyZeroInteractions(savedFoodItem);
