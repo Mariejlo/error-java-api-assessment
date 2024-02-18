@@ -16,6 +16,7 @@ public class FoodItem extends FoodCatalogue {
    // FoodItem specific attributes, constructors, methods
 
     @Entity // Specifies that this class is an entity and is mapped to a database table
+    @Table(name = "FOOD_ITEM")
     public class FoodItem {
 
         @Id
@@ -31,7 +32,6 @@ public class FoodItem extends FoodCatalogue {
 
         @NotNull(message = "Calories per serving cannot be null")
         private Integer caloriesPerServing; // Number of calories per serving (e.g. 100, 1000)
-        // If we got extra time more attributes like price, category will be added
 
         // Nutritional information
         @Min(value = 0, message = "Calories cannot be negative")
@@ -144,7 +144,7 @@ public class FoodItem extends FoodCatalogue {
                     '}';
         }
     }
-}
+
     /**
      * Calculates the total caloric value of the food item based on its
      * macronutrient content.
@@ -155,9 +155,3 @@ public class FoodItem extends FoodCatalogue {
      * 
      * @return the total caloric value of the food item.
      */
-    public double calculateTotalCalories() {
-        return (fats * 9) + (proteins * 4) + (carbohydrates * 4);
-        
-    }
-
-
