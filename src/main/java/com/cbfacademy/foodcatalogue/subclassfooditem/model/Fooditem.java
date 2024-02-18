@@ -13,7 +13,7 @@ import javax.validation.constraints.Min;
 
 @Entity
 public class FoodItem extends FoodCatalogue {
-   // FoodItem specific attributes, constructors, methods
+    // FoodItem specific attributes, constructors, methods
 
     @Entity // Specifies that this class is an entity and is mapped to a database table
     @Table(name = "FOOD_ITEM")
@@ -155,3 +155,4 @@ public class FoodItem extends FoodCatalogue {
      * 
      * @return the total caloric value of the food item.
      */
+}
