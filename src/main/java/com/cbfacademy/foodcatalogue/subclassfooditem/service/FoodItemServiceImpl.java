@@ -30,7 +30,7 @@ public class FoodItemServiceImpl implements FoodItemService {
     @Override
     public FoodItem getFoodItemById(Long id) throws ResourceNotFoundException {
         return foodItemRepository.getFoodItemById(id);
-                
+
     }
 
     @Override
@@ -38,12 +38,9 @@ public class FoodItemServiceImpl implements FoodItemService {
         FoodItem existingFoodItem = foodItemRepository.getFoodItemById(id);
         existingFoodItem.setName(foodItemDetails.getName());
         existingFoodItem.setCalories(foodItemDetails.getCalories());
-//TODO Add serving size to existingFoodItem
-        // Logic to update a food item
-        // Call the method to update properties
-        existingFoodItem.setDescription(foodItemDetails.getDescription());
-        existingFoodItem.setPrice(foodItemDetails.getPrice());
-        return foodItemRepository.save(existingFoodItem); // Return the updated food item
+        existingFoodItem.setServingSize(foodItemDetails.getServingSize());
+        return existingFoodItem;
+
     }
 
     @Override
@@ -54,7 +51,7 @@ public class FoodItemServiceImpl implements FoodItemService {
     @Override
     public double calculateTotalCalories(List<FoodItem> foodItems) {
         return foodItems.stream()
-                .mapToDouble(FoodItem::getCalories) //Use the method from the FoodItem class
+                .mapToDouble(FoodItem::getCalories) // Use the method from the FoodItem class
                 .sum();
     }
 
