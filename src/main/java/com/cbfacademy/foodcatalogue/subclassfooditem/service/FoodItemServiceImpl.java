@@ -1,11 +1,11 @@
-package com.example.foodcatalogue.service;
-
-import com.example.foodcatalogue.exception.ResourceNotFoundException;
-import com.example.foodcatalogue.model.FoodItem;
-import com.example.foodcatalogue.repository.FoodItemRepository;
+package com.cbfacademy.foodcatalogue.subclassfooditem.service;
 
 import java.io.IOException;
 import java.util.List;
+
+import com.cbfacademy.foodcatalogue.subclassfooditem.exception.ResourceNotFoundException;
+import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem;
+import com.cbfacademy.foodcatalogue.subclassfooditem.repository.FoodItemRepository;
 
 public class FoodItemServiceImpl implements FoodItemService {
 
@@ -29,15 +29,16 @@ public class FoodItemServiceImpl implements FoodItemService {
 
     @Override
     public FoodItem getFoodItemById(Long id) throws ResourceNotFoundException {
-        return foodItemRepository.getFoodItemById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("FoodItem", "id", id));
+        return foodItemRepository.getFoodItemById(id);
+                
     }
 
     @Override
     public FoodItem updateFoodItem(Long id, FoodItem foodItemDetails) throws ResourceNotFoundException {
-        FoodItem existingFoodItem = foodItemRepository.getFoodItemById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("FoodItem", "id", id));
-
+        FoodItem existingFoodItem = foodItemRepository.getFoodItemById(id);
+        existingFoodItem.setName(foodItemDetails.getName());
+        existingFoodItem.setCalories(foodItemDetails.getCalories());
+//TODO Add serving size to existingFoodItem
         // Logic to update a food item
         // Call the method to update properties
         existingFoodItem.setDescription(foodItemDetails.getDescription());
