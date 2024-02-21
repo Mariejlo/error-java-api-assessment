@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
+
+import java.io.IOException;
 import java.util.List;
 
 //Class definition section
@@ -34,7 +36,7 @@ public class FoodItemController {
     }
 
     @PostMapping("/") //// @Valid if validation fails , Spring return 400 bad request response
-    public ResponseEntity<FoodItem> createFoodItem(@Valid @RequestBody FoodItem foodItem) {
+    public ResponseEntity<FoodItem> createFoodItem(@Valid @RequestBody FoodItem foodItem) throws IOException {
         FoodItem savedFoodItem = foodItemService.saveFoodItem(foodItem);
         return ResponseEntity.ok().body(savedFoodItem);
     }
