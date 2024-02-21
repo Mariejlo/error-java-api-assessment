@@ -3,7 +3,6 @@ package com.cbfacademy.apiassessment.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -20,9 +19,7 @@ import com.cbfacademy.foodcatalogue.subclassfooditem.service.FoodItemService;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class) // Mock creation of the service talks to JUnit
