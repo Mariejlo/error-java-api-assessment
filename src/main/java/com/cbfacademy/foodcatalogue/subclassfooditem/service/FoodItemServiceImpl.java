@@ -3,10 +3,13 @@ package com.cbfacademy.foodcatalogue.subclassfooditem.service;
 import java.io.IOException;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.cbfacademy.foodcatalogue.subclassfooditem.exception.ResourceNotFoundException;
 import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem;
 import com.cbfacademy.foodcatalogue.subclassfooditem.repository.FoodItemRepository;
 
+@Service
 public class FoodItemServiceImpl implements FoodItemService {
 
     private final FoodItemRepository foodItemRepository;
