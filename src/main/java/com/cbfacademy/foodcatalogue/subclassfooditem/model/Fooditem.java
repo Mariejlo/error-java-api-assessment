@@ -1,15 +1,13 @@
 package com.cbfacademy.foodcatalogue.subclassfooditem.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
 import com.cbfacademy.foodcatalogue.FoodCatalogue;
 
 import java.text.DecimalFormat;
-import java.util.Locale;
-
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -25,7 +23,7 @@ public class FoodItem extends FoodCatalogue {
 
     @NotNull(message = "Name cannot be null") // Ensures field not null
     @Size(min = 2, max = 100, message = "Name must be between 2 and 100 characters") // Filed size within range private
-                                                                                     // String name;
+    // String name;
     @Column(name = "food_name", nullable = false, length = 100)
     private String name; // Name of the food item
 
@@ -63,11 +61,11 @@ public class FoodItem extends FoodCatalogue {
 
     @Override
     public void displayDetails() {
-        // TODO 
+        // TODO
         System.out.println("Name: " + name);
         System.out.println("Serving size: " + servingSize);
         System.out.println("Calories: " + caloriesPerServing);
-        throw new UnsupportedOperationException("Unimplemented method 'displayDetails'");
+
     }
 
     @Override
@@ -88,43 +86,45 @@ public class FoodItem extends FoodCatalogue {
         System.out.println("Carbohydrates: " + new DecimalFormat("#.##").format(carbohydrates) + "g");
         System.out.println("Protein: " + new DecimalFormat("#.##").format(protein) + "g");
 
-        throw new UnsupportedOperationException("Unimplemented method 'calculateNutrition'");
     }
 
-    public static void main(String[] args) {
-        FoodItem foodItem = new FoodItem(1L, "Apple", "1 medium", 50);
-    
-        foodItem.displayDetails();
-        foodItem.calculateNutrition();
-    }
     public String getName() {
-        // TODO Auto-generated method
-        throw new UnsupportedOperationException("Unimplemented method 'getName'");
+        return name;
+
     }
 
     public void setName(String name) {
-        // TODO Auto-generated method 
-        throw new UnsupportedOperationException("Unimplemented method 'setName'");
+        this.name = name;
+
     }
 
     public Integer getCalories() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getCalories'");
+        return caloriesPerServing;
+
     }
 
     public void setCalories(Integer calories) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setCalories'");
+        this.caloriesPerServing = calories;
+
     }
 
     public String getServingSize() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getServingSize'");
+        return servingSize;
+
     }
 
-    public void setServingSize(String servingSize2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setServingSize'");
+    public void setServingSize(String servingSize) {
+        this.servingSize = servingSize;
+
     }
 
+    public long getId() {
+        // TODO method needs to be implemented get ID
+        throw new UnsupportedOperationException("Unimplemented method 'getId'");
+    }
+
+    public Object getDescription() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getDescription'");
+    }
 }
