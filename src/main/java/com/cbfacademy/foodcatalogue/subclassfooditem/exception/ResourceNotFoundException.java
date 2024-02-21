@@ -1,5 +1,7 @@
 package com.cbfacademy.foodcatalogue.subclassfooditem.exception;
 
+import org.springframework.http.HttpStatus;
+
 public class ResourceNotFoundException extends RuntimeException {  //Unchecked exception
 
     public ResourceNotFoundException(String resourceName, String fieldName, Object fieldValue) {
@@ -10,6 +12,11 @@ public class ResourceNotFoundException extends RuntimeException {  //Unchecked e
     public String getMessage() {
         // Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getMessage'");
+    }
+
+    public HttpStatus getHttpStatus() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getHttpStatus'");
     }
 
 }

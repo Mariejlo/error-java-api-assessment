@@ -1,5 +1,7 @@
 package com.cbfacademy.foodcatalogue.subclassfooditem.exception;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 
 public class ErrorMessage { //Class to send back consistent error response format
@@ -11,6 +13,12 @@ public class ErrorMessage { //Class to send back consistent error response forma
     public ErrorMessage(int statusCode, String message) {
         this.statusCode = statusCode;
         this.message = message;
+    }
+
+    public ErrorMessage(int value, String string, List<String> errors) {
+        this.statusCode = 0;
+        this.message = "";
+        
     }
 
     // Getters
