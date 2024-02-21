@@ -70,7 +70,7 @@ public class FoodItemServiceTest {
         
         
         // Act: Calculate the total calories
-        double totalCalories = foodItemService.calculateTotalCalorie(foodItems); 
+        double totalCalories = foodItemService.calculateTotalCalorie(foodItemList); 
         // Assert: checks that the calories results are as expected
         double expectedCalories = 100; // Update this with the correct calculation based on your logic
         assertEquals(expectedCalories, totalCalories, "The calculated total calories should match the expected value");
