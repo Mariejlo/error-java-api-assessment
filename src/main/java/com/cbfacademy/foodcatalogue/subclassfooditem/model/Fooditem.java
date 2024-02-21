@@ -152,4 +152,14 @@ public class FoodItem extends FoodCatalogue {
 
         throw new UnsupportedOperationException("Unimplemented method 'setCarbohydrates'");
     }
+
+    public void setSugars(int i) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setSugars'");
+    }
+
+    public char[] calculateTotalCalories() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'calculateTotalCalories'");
+    }
 }
