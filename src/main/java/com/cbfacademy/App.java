@@ -31,7 +31,7 @@ public class App {
 
 	@Bean
 	public GroupedOpenApi publicApi() {
-		return GropedOpenApi.builder()
+		return GroupedOpenApi.builder()
 				.group("public-apis")
 				.packagesToScan("com.cbfacademy") // Adjust the package to scan for your APIs)
 				.build();
