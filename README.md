@@ -1,9 +1,91 @@
-# **Java API Assessment**
+# **Introducing the Simple Food Catalogue API: Your Ultimate Digital Food Management Solution**
 
 ## **Introduction**
-Dive into the world of API development using Java and SpringBoot. We're handing over a skeleton codebase; your challenge is to shape a top-notch API from it.
+The Simple Food Catalogue API is a digital platform designed to efficiently manage food items. It offers comprehensive functionalities to add, retrieve, update, and delete food items from your digital catalogue. It also enables CRUD operations, including details such as name, serving size, and nutritional information. Ideal for culinary professionals, health enthusiasts, and foodies, this API facilitates easy maintenance of a detailed food inventory, including nutritional information. Designed with Java and Spring Boot, this project aims to simplify food management for personal or commercial use.
 
-You can build any API of your choosing, but it must include the following:
+With user-friendliness at its forefront, our API simplifies the management of food data, enabling users to keep a comprehensive list of food items accessible. Embrace the convenience of digital food catalogue management with the Simple Food Catalogue API.
+
+### **Technology Stack**
+
+- **Java*: Core programming language.
+- **Spring Boot*: Framework for simplifying the setup and development of new Spring applications.
+- **Maven* : Dependency management.
+- **JUnit & Mockito: Testing frameworks for unit testing.
+- **JSON: Data storage format.
+- **Swagger: API documentation.
+
+### **Features**
+
+- **CRUD Operations**: Create, Read, Update, and Delete functionalities for food items.
+- **Algorithm Implementation**: Includes an algorithm to calculate total calories of food items based on their nutritional content, and macronutrients.
+- **Data Storage**: Utilizes JSON files for persisting food item data.
+- **Exception Handling**: Comprehensive error handling for robust API responses.
+- **Inheritance**: Demonstrates object-oriented programming (OOP) principles within the API structure through model hierarchy.
+
+## **Getting Started/Installation**
+### **Prerequisites**
+- Java JDK 17 or newer (https://learn.microsoft.com/en-gb/java/openjdk/download#openjdk-17) 
+- Maven for dependency management and project build
+- [Git](https://git-scm.com/downloads)
+- [Visual Studio Code](https://code.visualstudio.com/Download) or any IDE that supports Java (e.g., IntelliJ IDEA, Eclipse)
+   1. [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+   2. [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack)
+
+
+### **Installation Steps**
+#### 1. Clone the repository to your local machine:
+```sh
+git clone [https://github.com/Mariejlo/java-api-assessment]
+cd [java-api-assessment]
+```
+#### 2. Navigate into the project directory:
+```sh
+cd simple-food-catalogue-api
+``
+#### 3. Install dependencies using Maven:
+```sh
+mvn install
+``
+#### 4. Start the Spring Boot application:
+```sh
+mvn spring-boot:run
+``
+
+### **Usage**
+Below are examples of how to use the API:
+### **Retrieve All Food Items
+- *GET* `*/api/foodItems*`
+   - *Response*: List of all food items in the catalogue.
+
+### **Add a New Food Item**
+- *POST* /api/foodItems
+   - *Request Body*: JSON representation of a food item.
+   - *Response*: Details of the added food item.
+
+### **Visual Elements**
+(I will include screenshots of GIFTs of API usage, and diagrams illustrating flow/functionalities of API)
+
+### **Testing**
+To run the unit tests, execute the following command:
+```sh
+mvn test
+``
+### **Error Handling**
+The API uses standard HTTP response codes to indicate the success or failure of an API request. For example:
+
+ - *404 Not Found*: The requested resource does not exist.
+ - *400 Bad Request*: The request was invalid.
+
+### **Contributing**
+Contributions to the Simple Food Catalogue API are welcome! Examples:(documentation improvements, feature requests, bug fixes)
+
+### **License**
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+### **Contact / Support**
+For support or inquiries, feel free to contact [Marie.lopator@gmail.com]
+
+
 
 1. At least one algorithm
 1. Unit test at least one class
