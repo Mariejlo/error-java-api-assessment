@@ -23,21 +23,21 @@ import java.util.List;
 import java.util.Optional;
 
 @SpringBootTest
-@ExtendWith(MockitoExtension.class) // Mock creation of the service talks to JUnit 
+@ExtendWith(MockitoExtension.class) // Mock creation of the service talks to JUnit
 public class FoodItemServiceTest {
-    
-    //Test for the service
-    @Mock //Mock instance implementation of the FoodItemRepository
+
+    // Test for the service
+    @Mock // Mock instance implementation of the FoodItemRepository
     private FoodItemRepository foodItemRepository;
 
-    @InjectMocks  //Creates an instance of the service
+    @InjectMocks // Creates an instance of the service
     private FoodItemService foodItemService;
 
     private FoodItem testFoodItem;
 
     @BeforeEach
     void setUp() {
-         // Initialize your FoodItem object here with the required parameters
+        // Initialize your FoodItem object here with the required parameters
         testFoodItem = new FoodItem(); // Initialize your FoodItem object here
         testFoodItem.setId(1L);
         testFoodItem.setName("Test Food");
@@ -48,7 +48,7 @@ public class FoodItemServiceTest {
     }
 
     // Test for saving a food item successfully
-    @Test //Single functionality test
+    @Test // Single functionality test
     void whenSaveFoodItem_thenReturnFoodItem() {
         // Arrange
         when(foodItemRepository.save(any(FoodItem.class))).thenReturn(savedFoodItem);
@@ -61,9 +61,8 @@ public class FoodItemServiceTest {
         assertEquals(testFoodItem.getName(), result.getName(), "The name of the result should match the input");
         // Verify interactions with the mock
         verify(foodItemRepository).save(testFoodItem);
-    } 
-       
-       
+    }
+
     @Test // calculates the total calories helps to ensure that the method works correctly
     void whenCalculateTotalCalories_thenReturnCorrectValue() {
         List<FoodItem> foodItemList = List.of(testFoodItem);  // Create a list containing the test food item
@@ -84,7 +83,8 @@ public class FoodItemServiceTest {
     // Test for fetching all food items successfully
     @Test
     void whenGetAllFoodItems_thenReturnFoodItemList() {
-        // Arrange: Create a list of FoodItems and set the repository to return this list when findAll is called
+        // Arrange: Create a list of FoodItems and set the repository to return this
+        // list when findAll is called
         List<FoodItem> expectedList = new ArrayList<>();
         expectedList.add(testFoodItem);
         when(foodItemRepository.findAll()).thenReturn(expectedList);
@@ -96,12 +96,9 @@ public class FoodItemServiceTest {
         assertNotNull(result, "The food item list should not be null");
         assertFalse(result.isEmpty(), "The food item list should not be empty");
         assertEquals(expectedList.size(), result.size(), "The size of the result list should match the expected list");
-        
+
         // Verify interactions with the mock
         verify(foodItemRepository).findAll();
     }
-            
-        
-}
-        
 
+}
