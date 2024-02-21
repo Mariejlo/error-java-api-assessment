@@ -48,6 +48,10 @@ public class FoodItem extends FoodCatalogue {
 
     // Getters and setters for all attributes
 
+    public FoodItem(long l, String string, int i, int j, int k, int m) {
+        //TODO Auto-generated constructor stub
+    }
+
     @Override
     public String toString() {
         return "FoodItem{" +
