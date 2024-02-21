@@ -1,10 +1,10 @@
-package com.example.foodcatalogue.service;
+package com.cbfacademy.foodcatalogue.subclassfooditem.service;
 
-import com.example.foodcatalogue.exception.ResourceNotFoundException;
-import com.example.foodcatalogue.model.FoodItem;
-import com.example.foodcatalogue.repository.FoodItemRepository;
-
+import java.io.IOException;
 import java.util.List;
+
+import com.cbfacademy.foodcatalogue.subclassfooditem.exception.ResourceNotFoundException;
+import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem;
 /**
  * Service interface for managing FoodItems.
  * This interface defines the contract for FoodItem-related operations.
