@@ -1,7 +1,6 @@
 package com.cbfacademy.foodcatalogue.subclassfooditem.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.foodcatalogue.model.FoodItem;
 import org.springframework.stereotype.Repository;
 
 import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem;
