@@ -7,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 import com.cbfacademy.foodcatalogue.FoodCatalogue;
 
+import java.text.DecimalFormat;
+import java.util.Locale;
+
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -60,23 +63,47 @@ public class FoodItem extends FoodCatalogue {
 
     @Override
     public void displayDetails() {
-        // TODO Auto-generated method stub
+        // TODO 
+        System.out.println("Name: " + name);
+        System.out.println("Serving size: " + servingSize);
+        System.out.println("Calories: " + caloriesPerServing);
         throw new UnsupportedOperationException("Unimplemented method 'displayDetails'");
     }
 
     @Override
     public void calculateNutrition() {
-        // TODO Auto-generated method stub
+
+        double calories = caloriesPerServing.doubleValue();
+        double fat = 0.0;
+        double carbohydrates = 0.0;
+        double protein = 0.0;
+
+        // Calculate the nutrients based on the calories
+        fat = calories * 0.2;
+        carbohydrates = calories * 0.55;
+        protein = calories * 0.25;
+
+        // Print the nutrition information
+        System.out.println("Fat: " + new DecimalFormat("#.##").format(fat) + "g");
+        System.out.println("Carbohydrates: " + new DecimalFormat("#.##").format(carbohydrates) + "g");
+        System.out.println("Protein: " + new DecimalFormat("#.##").format(protein) + "g");
+
         throw new UnsupportedOperationException("Unimplemented method 'calculateNutrition'");
     }
 
+    public static void main(String[] args) {
+        FoodItem foodItem = new FoodItem(1L, "Apple", "1 medium", 50);
+    
+        foodItem.displayDetails();
+        foodItem.calculateNutrition();
+    }
     public String getName() {
-        // TODO Auto-generated method stub
+        // TODO Auto-generated method
         throw new UnsupportedOperationException("Unimplemented method 'getName'");
     }
 
     public void setName(String name) {
-        // TODO Auto-generated method stub
+        // TODO Auto-generated method 
         throw new UnsupportedOperationException("Unimplemented method 'setName'");
     }
 
