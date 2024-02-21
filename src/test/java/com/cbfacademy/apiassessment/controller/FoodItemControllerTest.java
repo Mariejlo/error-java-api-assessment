@@ -1,26 +1,29 @@
-package com.cbfacademy.foodcatalogue.subclassfooditem.controller;
+package com.cbfacademy.apiassessment.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 import static org.hamcrest.Matchers.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.cbfacademy.foodcatalogue.subclassfooditem.service.FoodItemService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.cbfacademy.foodcatalogue.subclassfooditem.controller.FoodItemController;
 import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@ExtendWith(SpringExtension.class)
 @WebMvcTest(FoodItemController.class) // Focus only on the FoodItemController
 public class FoodItemControllerTest {
 
@@ -30,20 +33,23 @@ public class FoodItemControllerTest {
     @MockBean
     private FoodItemService foodItemService; // Mock the service layer used by the controller
 
-    private List<FoodItem> foodItemList;
     private FoodItem testFoodItem;
 
     @BeforeEach
     public void setup() {
         // Initialize your test data here
-        testFoodItem = new FoodItem(/* parameters */);
-        foodItemList = Arrays.asList(testFoodItem);
-        // Other setup actions...
+        testFoodItem = new FoodItem(1L, "Test Food", 100, 5, 10, 20);
+        Arrays.asList(testFoodItem);
+       
     }
 
     // Test GET All FoodItems
+    @SuppressWarnings("null")
     @Test
     public void whenGetAllFoodItems_thenReturnJsonArray() throws Exception {
+        List<FoodItem> foodItemList = new ArrayList<>();
+        foodItemList.add(testFoodItem);
+
         when(foodItemService.getAllFoodItems()).thenReturn(foodItemList);
 
         mockMvc.perform(get("/api/v1/foodItems")
@@ -51,10 +57,11 @@ public class FoodItemControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].name", is(testFoodItem.getName())));
-        // Add more assertions as needed
+        
     }
 
     // Test GET FoodItem by ID
+    @SuppressWarnings("null")
     @Test
     public void whenGetFoodItemById_thenReturnJson() throws Exception {
         when(foodItemService.getFoodItemById(testFoodItem.getId())).thenReturn(testFoodItem);
@@ -63,10 +70,11 @@ public class FoodItemControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name", is(testFoodItem.getName())));
-        // Add more assertions as needed
+        
     }
 
     // Test POST Create FoodItem
+    @SuppressWarnings("null")
     @Test
     public void whenPostFoodItem_thenCreateFoodItem() throws Exception {
         when(foodItemService.saveFoodItem(any(FoodItem.class))).thenReturn(testFoodItem);
@@ -76,10 +84,11 @@ public class FoodItemControllerTest {
                 .content(asJsonString(testFoodItem)))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.name", is(testFoodItem.getName())));
-        // Add more assertions as needed
+       
     }
 
     // Test PUT Update FoodItem
+    @SuppressWarnings("null")
     @Test
     public void whenPutFoodItem_thenUpdateFoodItem() throws Exception {
         when(foodItemService.updateFoodItem(eq(testFoodItem.getId()), any(FoodItem.class))).thenReturn(testFoodItem);
@@ -89,10 +98,11 @@ public class FoodItemControllerTest {
                 .content(asJsonString(testFoodItem)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name", is(testFoodItem.getName())));
-        // Add more assertions as needed
+        
     }
 
     // Test DELETE FoodItem
+    @SuppressWarnings("null")
     @Test
     public void whenDeleteFoodItem_thenRemoveFoodItem() throws Exception {
         doNothing().when(foodItemService).deleteFoodItem(testFoodItem.getId());
@@ -100,7 +110,7 @@ public class FoodItemControllerTest {
         mockMvc.perform(delete("/api/v1/foodItems/{id}", testFoodItem.getId())
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNoContent());
-        // Add more assertions as needed
+        
     }
 
     // Convert object to JSON string for request bodies
