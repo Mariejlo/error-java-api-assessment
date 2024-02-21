@@ -78,5 +78,10 @@ public class FoodItemRepository {
             }
         }
     }
+
+    public FoodItem save(FoodItem existingFoodItem) {
+        
+        throw new UnsupportedOperationException("Unimplemented method 'save'");
+    }
 }
 

@@ -127,4 +127,9 @@ public class FoodItem extends FoodCatalogue {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getDescription'");
     }
+
+    public void setDescription(Object description) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setDescription'");
+    }
 }

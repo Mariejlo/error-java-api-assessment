@@ -27,6 +27,7 @@ public class FoodItemServiceImpl implements FoodItemService {
         return foodItemRepository.getAllFoodItems();
     }
 
+
     @Override
     public FoodItem getFoodItemById(Long id) throws ResourceNotFoundException {
         return foodItemRepository.getFoodItemById(id);
@@ -39,7 +40,8 @@ public class FoodItemServiceImpl implements FoodItemService {
         existingFoodItem.setName(foodItemDetails.getName());
         existingFoodItem.setCalories(foodItemDetails.getCalories());
         existingFoodItem.setServingSize(foodItemDetails.getServingSize());
-        return existingFoodItem;
+        // Assuming save() to update the food item
+        return foodItemRepository.save(existingFoodItem);
 
     }
 
