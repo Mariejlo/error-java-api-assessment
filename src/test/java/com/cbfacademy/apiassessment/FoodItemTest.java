@@ -16,7 +16,7 @@ import java.net.URL;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(classes = App.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class FoodItemTestRestController {
+public class FoodItemTest {
 
 	@LocalServerPort
 	private int port;
