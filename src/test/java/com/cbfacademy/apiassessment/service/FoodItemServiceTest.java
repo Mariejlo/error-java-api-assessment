@@ -14,8 +14,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.cbfacademy.apiassessment.model.FoodItem;
-import com.cbfacademy.apiassessment.repository.FoodItemRepository;
+import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem;
+import com.cbfacademy.foodcatalogue.subclassfooditem.repository.FoodItemRepository;
 import com.cbfacademy.foodcatalogue.subclassfooditem.service.FoodItemService;
 
 import java.util.Arrays;
