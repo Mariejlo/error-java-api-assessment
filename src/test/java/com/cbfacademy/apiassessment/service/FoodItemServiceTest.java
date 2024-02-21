@@ -18,6 +18,8 @@ import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem;
 import com.cbfacademy.foodcatalogue.subclassfooditem.repository.FoodItemRepository;
 import com.cbfacademy.foodcatalogue.subclassfooditem.service.FoodItemService;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -49,9 +51,9 @@ public class FoodItemServiceTest {
 
     // Test for saving a food item successfully
     @Test // Single functionality test
-    void whenSaveFoodItem_thenReturnFoodItem() {
+    void whenSaveFoodItem_thenReturnFoodItem() throws IOException {
         // Arrange
-        when(foodItemRepository.save(any(FoodItem.class))).thenReturn(savedFoodItem);
+        when(foodItemRepository.save(any(FoodItem.class))).thenReturn(testFoodItem);
 
         // Act: call the method you are testing
         FoodItem result = foodItemService.saveFoodItem(testFoodItem);
@@ -65,19 +67,14 @@ public class FoodItemServiceTest {
 
     @Test // calculates the total calories helps to ensure that the method works correctly
     void whenCalculateTotalCalories_thenReturnCorrectValue() {
-        List<FoodItem> foodItemList = List.of(testFoodItem);  // Create a list containing the test food item
-        
-        
+        List<FoodItem> foodItemList = List.of(testFoodItem); // Create a list containing the test food item
+
         // Act: Calculate the total calories
-        double totalCalories = foodItemService.calculateTotalCalorie(foodItemList); 
+        double totalCalories = foodItemService.calculateTotalCalories(foodItemList);
         // Assert: checks that the calories results are as expected
         double expectedCalories = 100; // Update this with the correct calculation based on your logic
         assertEquals(expectedCalories, totalCalories, "The calculated total calories should match the expected value");
-    
-
-        assertNotNull(totalCalories), "The result should not be null";
-        assertEquals(100 * 4 + 20 * 9 + 30 * 4 + 50 * 4, totalCalories), "The result should be the same as the input";
-
+    }
         
         
     // Test for fetching all food items successfully

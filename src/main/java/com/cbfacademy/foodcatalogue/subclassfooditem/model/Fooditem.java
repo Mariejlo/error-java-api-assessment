@@ -61,7 +61,7 @@ public class FoodItem extends FoodCatalogue {
 
     @Override
     public void displayDetails() {
-        // TODO
+
         System.out.println("Name: " + name);
         System.out.println("Serving size: " + servingSize);
         System.out.println("Calories: " + caloriesPerServing);
@@ -119,17 +119,37 @@ public class FoodItem extends FoodCatalogue {
     }
 
     public long getId() {
-        // TODO method needs to be implemented get ID
+
         throw new UnsupportedOperationException("Unimplemented method 'getId'");
     }
 
     public Object getDescription() {
-        // TODO Auto-generated method stub
+
         throw new UnsupportedOperationException("Unimplemented method 'getDescription'");
     }
 
     public void setDescription(Object description) {
-        // TODO Auto-generated method stub
+
         throw new UnsupportedOperationException("Unimplemented method 'setDescription'");
+    }
+
+    public void setId(long l) {
+
+        throw new UnsupportedOperationException("Unimplemented method 'setId'");
+    }
+
+    public void setFats(int i) {
+
+        throw new UnsupportedOperationException("Unimplemented method 'setFats'");
+    }
+
+    public void setProteins(int i) {
+
+        throw new UnsupportedOperationException("Unimplemented method 'setProteins'");
+    }
+
+    public void setCarbohydrates(int i) {
+
+        throw new UnsupportedOperationException("Unimplemented method 'setCarbohydrates'");
     }
 }

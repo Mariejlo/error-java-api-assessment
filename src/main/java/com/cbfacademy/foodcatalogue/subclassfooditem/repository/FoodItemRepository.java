@@ -80,8 +80,12 @@ public class FoodItemRepository {
     }
 
     public FoodItem save(FoodItem existingFoodItem) {
-        
+
         throw new UnsupportedOperationException("Unimplemented method 'save'");
     }
-}
 
+    public Object findAll() {
+
+        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+    }
+}
