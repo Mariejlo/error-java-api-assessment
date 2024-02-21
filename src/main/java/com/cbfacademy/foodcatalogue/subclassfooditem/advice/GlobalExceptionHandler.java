@@ -1,4 +1,4 @@
-package com.foodcatalogue.exception; 
+package com.cbfacademy.foodcatalogue.subclassfooditem.advice; 
 
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -23,7 +23,7 @@ public class GlobalExceptionHandler {
 
     // Exception handlers go here
 
-    @ExceptionHandler(ResourceNotFoundException) //Method should be invoked when the exception is thrown
+    @ExceptionHandler(ResourceNotFoundException.class) //Method should be invoked when the exception is thrown
     @ResponseStatus(HttpStatus.NOT_FOUND) //Status code should be 404
     @ResponseBody //Return type should be JSON
     public ErrorMessage handleResourceNotFoundException(ResourceNotFoundException ex) { 
