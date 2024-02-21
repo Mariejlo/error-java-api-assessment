@@ -1,4 +1,4 @@
-package com.cbfacademy.apiassessment;
+package com.cbfacademy.apiassessment.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Description;
 import org.springframework.http.ResponseEntity;
 
 import com.cbfacademy.App;
+import com.cbfacademy.foodcatalogue.subclassfooditem.model.FoodItem;
 
 import java.net.URL;
 
@@ -18,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 		 * This class tests the functionalities of the FoodItem model,
 		 * especially the calculateTotalCalories method.
 		 */
-        public class FoodItemTest {
+        public class FoodItemModelTest {
 		
             @Test
             public void testCalculateTotalCalories() {
@@ -32,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
                 System.out.println(foodItem.calculateTotalCalories());
     
                 // Act
-                double actualCalories = foodItem.calculateTotalCalories();
+                char[] actualCalories = foodItem.calculateTotalCalories();
                 System.out.println(actualCalories);
     
                 // Assert
