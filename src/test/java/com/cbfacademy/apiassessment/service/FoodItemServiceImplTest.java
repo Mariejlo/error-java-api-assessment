@@ -1,6 +1,9 @@
 package com.cbfacademy.apiassessment.service;
 
 import static org.mockito.Mockito.*;
+
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -21,7 +24,7 @@ public class FoodItemServiceImplTest {
     private FoodItemServiceImpl foodItemService;
 
     @Test //Single functionality test
-    void whenSaveFoodItem_thenReturnFoodItem() {
+    void whenSaveFoodItem_thenReturnFoodItem() throws IOException {
         // Arrange
         FoodItem inputFoodItem = new FoodItem(/* parameters */);
         FoodItem savedFoodItem = new FoodItem(/* parameters */);
