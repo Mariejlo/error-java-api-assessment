@@ -65,7 +65,7 @@ mvn spring-boot:run
 ```
 
 ## **Initialise your Spring Boot Project**
-- **Spring Initializr**: to generate your project skeleton. Choose Java as the language, Maven as the build tool, and add dependencies such as Spring Web and H" Database for testing purposes.
+- **Spring Initializr**: to generate your project skeleton. Choose Java as the language, Maven as the build tool, and add dependencies such as Spring Web and H2 Database for testing purposes.
 
 ## **Project Structure**
 Organize your project into packages that reflect your API's architecture:
@@ -74,8 +74,49 @@ Organize your project into packages that reflect your API's architecture:
 - `*service*`: Business logic (`*FoodItemService.java and its implementation*`).
 - `*controller*`: API endpoints (`*FoodItemController.java*`).
 - `*exception*`: Custom exception handling (`*ResourceNotFoundException.java and GlobalExceptionHandler.java*`).
-config: Configuration classes (Swagger configuration).
+- `*config*`: Configuration classes (Swagger configuration).
 
+## **Implement your Models**
+Define your FoodItem class in the model package with annotations for JPA and validation constraints
+
+## **Create Repository Interfaces**
+In the `*repository*` package, define interfaces extending `*JPARepository*` for CRUD operations. Use Spring Data JPA to simplify data access.
+
+## **Develop Service Layer**
+Implement business logic in your service layer. This includes methods for CRUD operations and any additional logic, such as calorie calculations.
+
+## **Define Controllers**
+Create controllers in the controller package. Annotate your class with @RestController and define mappings for each operation (@GetMapping, @PostMapping, etc.).
+
+## **Exception Handling**
+Implement exception handling using @ControllerAdvice to manage errors across your API.
+
+## **Data Storage in JSON File**
+To store data in a JSON file instead of a traditional database:
+
+- Use Jackson's `*ObjectMapper*` to read and write your model objects from/to a JSON file.
+- Modify your repository layer to interact with the JSON file directly. This might involve loading the file on application start, modifying the in-memory list of `*FoodItems*`, and saving it back to the file on changes.
+
+## **Testing**
+Write unit tests for your service layer using JUnit and Mockito. Test each method for correctness, especially your calorie calculation logic.
+
+## **Documentation with Swagger**
+- **Add Swagger Dependencies**: Include Springfox 3 libraries in your pom.xml.
+- **Configure Swagger**: Create a configuration class to enable Swagger UI and customize its settings.
+- **Document Your API**: Use Swagger annotations in your controllers to describe endpoints, request bodies, and response models.
+
+## **Run Your Application**
+Start your application by running the `main` method in your Spring Boot application class.
+Access your endpoints through Swagger UI at *http://localhost:8080/swagger-ui/* or use a tool like Postman.
+
+## **Debugging**
+Utilize your IDE's debugging tools to step through your code and identify issues.
+Check the console logs for errors and exceptions that can give you hints on what's wrong.
+
+## **Iterate and Improve**
+ - Test your API thoroughly.
+ - Refine your code based on testing feedback.
+ - Continuously improve the API based on new requirements 
 ### **Usage**
 Below are examples of how to use the API:
 ### **Retrieve All Food Items**
@@ -116,7 +157,7 @@ Response: 200 OK
 ]
 
 ```
-Response: 201 Created
+
 
 
 ### **Visual Elements**
