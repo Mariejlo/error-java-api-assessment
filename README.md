@@ -7,12 +7,12 @@ With user-friendliness at its forefront, our API simplifies the management of fo
 
 ### **Technology Stack**
 
-- **Java*: Core programming language.
-- **Spring Boot*: Framework for simplifying the setup and development of new Spring applications.
-- **Maven* : Dependency management.
-- **JUnit & Mockito: Testing frameworks for unit testing.
-- **JSON: Data storage format.
-- **Swagger: API documentation.
+- **Java**: Core programming language.
+- **Spring Boot**: Framework for simplifying the setup and development of new Spring applications.
+- **Maven** : Dependency management.
+- **JUnit & Mockito**: Testing frameworks for unit testing.
+- **JSON**: Data storage format.
+- **Swagger**: API documentation.
 
 ### **Features**
 
@@ -27,9 +27,9 @@ With user-friendliness at its forefront, our API simplifies the management of fo
 - Java JDK 17 or newer (https://learn.microsoft.com/en-gb/java/openjdk/download#openjdk-17) 
 - Maven for dependency management and project build
 - [Git](https://git-scm.com/downloads)
-- [Visual Studio Code](https://code.visualstudio.com/Download) or any IDE that supports Java (e.g., IntelliJ IDEA, Eclipse)
-   1. [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-   2. [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack)
+- [Visual Studio Code](https://code.visualstudio.com/Download) or any IDE that supports Java (e.g., IntelliJ IDEA, SpringTool Suite (STS) Eclipse)
+   A. [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+   B. [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=vmware.vscode-boot-dev-pack)
 
 
 ### **Installation Steps**
@@ -41,26 +41,83 @@ cd [java-api-assessment]
 #### 2. Navigate into the project directory:
 ```sh
 cd simple-food-catalogue-api
-``
-#### 3. Install dependencies using Maven:
+```
+
+#### 3. Install dependencies using Maven: Open a terminal at the root of the repo directory and run the following command to install the dependencies:
+
+```sh
+./mvnw clean dependency: resolve
+```
+
+If you are on a Windows machine, that will be:
+```cmd
+mvnw clean dependency:resolve
+```
 ```sh
 mvn install
-``
-#### 4. Start the Spring Boot application:
+```
+
+#### 4. Start the Spring Boot application: To start the API in VS Code, press `F5` or tap the 'Play' icon for the `api-assessment` app in the Spring Boot Dashboard.
+
+Alternatively, to start the API from the terminal, run the following command:
 ```sh
 mvn spring-boot:run
-``
+```
+
+## **Initialise your Spring Boot Project**
+- **Spring Initializr**: to generate your project skeleton. Choose Java as the language, Maven as the build tool, and add dependencies such as Spring Web and H" Database for testing purposes.
+
+## **Project Structure**
+Organize your project into packages that reflect your API's architecture:
+- `*model*`: Contains your domain entities (`*FoodItem.java*`).
+- `*repository*`: Interfaces for data access (`*FoodItemRepository.java*`).
+- `*service*`: Business logic (`*FoodItemService.java and its implementation*`).
+- `*controller*`: API endpoints (`*FoodItemController.java*`).
+- `*exception*`: Custom exception handling (`*ResourceNotFoundException.java and GlobalExceptionHandler.java*`).
+config: Configuration classes (Swagger configuration).
 
 ### **Usage**
 Below are examples of how to use the API:
-### **Retrieve All Food Items
+### **Retrieve All Food Items**
 - *GET* `*/api/foodItems*`
    - *Response*: List of all food items in the catalogue.
 
 ### **Add a New Food Item**
-- *POST* /api/foodItems
+- *POST* `*/api/foodItems*`
    - *Request Body*: JSON representation of a food item.
    - *Response*: Details of the added food item.
+
+### **Create Food Items, example**
+```sh
+POST /api/foodItems
+Content-Type: application/json
+
+{
+  "name": "Apple",
+  "servingSize": "100g",
+  "caloriesPerServing": 52,
+  "fats": 0.2,
+  "proteins": 0.3,
+  "carbohydrates": 14
+}
+```
+
+### **Get All Food Items, example**
+```sh
+GET /api/foodItems
+
+Response: 200 OK
+[
+  {
+    "id": 1,
+    "name": "Apple",
+    ...
+  }
+]
+
+```
+Response: 201 Created
+
 
 ### **Visual Elements**
 (I will include screenshots of GIFTs of API usage, and diagrams illustrating flow/functionalities of API)
@@ -69,7 +126,7 @@ Below are examples of how to use the API:
 To run the unit tests, execute the following command:
 ```sh
 mvn test
-``
+```
 ### **Error Handling**
 The API uses standard HTTP response codes to indicate the success or failure of an API request. For example:
 
