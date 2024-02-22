@@ -18,6 +18,7 @@ import java.util.List;
 @RestController // Controller class every method written HTTP response body
 @RequestMapping("/api/v1/foodItems") // Set the base path for all methods
 @Validated // FoodItem are automatically validated when they are received as input
+@CrossOrigin // This enables CORS for all endpoints in this controller
 public class FoodItemController {
     // Class body
 
